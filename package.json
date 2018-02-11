@@ -1,0 +1,52 @@
+{
+  "name": "@vickram/react-auto-complete",
+  "version": "1.0.0",
+  "description": "React auto-complete plugin",
+  "main": "dist/index.js",
+  "homepage": "http://www.vickram.me/react-auto-complete",
+  "author": "Vickram Ravichandran (http://www.vickram.me)",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist && mkdir dist",
+    "webpack": "npm run clean && webpack --config webpack.config.js"
+  },
+  "keywords": [
+    "react",
+    "auto complete",
+    "auto suggest",
+    "plugin",
+    "dropdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vickramravichandran/react-auto-complete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vickramravichandran/react-auto-complete/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.4.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^3.19.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.6.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "lodash": "^4.17.5",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
