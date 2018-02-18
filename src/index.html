@@ -1,0 +1,157 @@
+<!doctype html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<script>
+  if (/*@cc_on!@*/false) {
+    document.documentElement.className += 'ie10';
+  }
+</script>
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <title>React AutoComplete</title>
+
+  <link rel="shortcut icon" href="images/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-icon-192x192.png">
+  <link rel="manifest" href="images/favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="images/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <header class="header" role="banner">
+      <a href="http://www.vickram.me/">
+        <img id="blog" class="logo" src="https://vickram.blob.core.windows.net/images/vickram-ravichandran.png?sv=2017-04-17&amp;ss=b&amp;srt=o&amp;sp=r&amp;se=2050-10-15T01:20:16Z&amp;st=2017-10-14T17:20:16Z&amp;spr=https&amp;sig=HW39593GSHaPDTL%2F1BqWDWOaNQczc5ZGnPLRzUswd8k%3D">
+      </a>
+      <h1 class="title">
+        <a href="http://www.vickram.me/" style="text-decoration:none">Vickram Ravichandran</a>
+      </h1>
+      <p class="description"></p>
+      <div class="separator"></div>
+
+      <nav class="main-nav responsive" role="navigation">
+        <ul>
+          <li>
+            <a href="http://www.vickram.me/">Home</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="social-icons">
+        <a href="http://www.vickram.me/" class="icon icon-home"></a>
+        <a href="https://www.linkedin.com/in/vickramravichandran" class="icon icon-linkedin"></a>
+        <a href="https://github.com/vickramravichandran/react-auto-complete" class="icon icon-github-circled"></a>
+      </div>
+
+      <div class="npm-links">
+        <div>
+          <code>npm i @vickram/react-auto-complete</code>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="content">
+    <main role="main">
+      <article class="post" role="article" itemscope="" itemtype="http://schema.org/Article">
+        <h1 class="post-title">
+          React AutoComplete</h1>
+
+        <div class="shield-badges">
+          <p>
+            <a href="https://www.npmjs.com/package/@vickram/react-auto-complete" rel="nofollow">
+              <img src="https://img.shields.io/npm/v/@vickram/react-auto-complete.svg?maxAge=3600&style=flat-square" alt="npm version">
+            </a>
+            <a href="https://www.npmjs.com/package/@vickram/react-auto-complete" rel="nofollow">
+              <img src="https://img.shields.io/npm/dt/@vickram/react-auto-complete.svg?maxAge=3600&style=flat-square" alt="npm downloads">
+            </a>
+          </p>
+        </div>
+
+        <div style="margin-top:5px;">
+          <!-- <a role="button" class="btn btn-primary btn-lg" href="https://github.com/vickramravichandran/react-auto-complete/archive/demo.zip">Download</a> -->
+          <a role="button" class="btn btn-primary btn-md" target="_blank" href="https://github.com/vickramravichandran/react-auto-complete">Source</a>
+          <a role="button" class="btn btn-primary btn-md" href="#config-options">Options</a>
+        </div>
+
+        <div id="app">
+        </div>
+
+        <section class="post-comments">
+          <div id="disqus_thread"></div>
+          <script>
+            /**
+            * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+
+            var disqus_config = function () {
+              this.page.url = "http://www.vickram.me/react-auto-complete"
+              this.page.identifier = "react-auto-complete";
+              this.page.title = "react-auto-complete plugin"
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+
+              s.src = '//vickram.disqus.com/embed.js';
+
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+          </noscript>
+        </section>
+
+        <div style="height:200px"></div>
+
+      </article>
+    </main>
+  </div>
+
+  <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+</body>
+
+</html>
