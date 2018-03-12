@@ -32,7 +32,13 @@ export default class AutoComplete extends React.Component {
 
   componentDidMount() {
     this._subscribeDOMEvents();
-    this._safeCallback(this.props.ready);
+
+    const publicApi = {
+      positionDropdown: this._positionDropdownIfVisible.bind(this),
+      hideDropdown: this._hideDropdown.bind(this)
+    };
+
+    this._safeCallback(this.props.ready, publicApi);
   }
 
   componentDidUpdate() {
@@ -459,7 +465,6 @@ export default class AutoComplete extends React.Component {
   }
 
   _queryAndRender(params, renderListFn) {
-    const self = this;
     const options = this.props;
 
     // backup original search term in case we need to restore if user hits ESCAPE
@@ -470,25 +475,25 @@ export default class AutoComplete extends React.Component {
 
     return Promise
       .resolve(options.data(params.searchText, params.paging))
-      .then((result) => {
+      .then(result => {
 
-        if (self._shouldHideDropdown(params, result)) {
-          self._autoHide();
+        if (this._shouldHideDropdown(params, result)) {
+          this._autoHide();
           return;
         }
 
-        renderListFn(result).then(self._show);
+        renderListFn(result).then(this._show);
 
         // callback
-        self._safeCallback(options.loadingComplete);
+        this._safeCallback(options.loadingComplete);
       })
-      .catch((error) => {
-        self._autoHide();
+      .catch(error => {
+        this._autoHide();
         // callback
-        self._safeCallback(options.loadingComplete, { error: error });
+        this._safeCallback(options.loadingComplete, { error: error });
       })
       .then(() => {
-        self.setState({ dataLoadInProgress: false });
+        this.setState({ dataLoadInProgress: false });
       });
   }
 
@@ -611,11 +616,9 @@ export default class AutoComplete extends React.Component {
       return [];
     }
 
-    const self = this;
-
-    return this._getRenderFn().then(function (renderFn) {
-      self.setState({
-        renderItems: self._getRenderItems(renderFn, result)
+    return this._getRenderFn().then(renderFn => {
+      this.setState({
+        renderItems: this._getRenderItems(renderFn, result)
       });
     });
   }
@@ -625,16 +628,14 @@ export default class AutoComplete extends React.Component {
       return [];
     }
 
-    const self = this;
+    return this._getRenderFn().then(renderFn => {
+      const items = this._getRenderItems(renderFn, result);
 
-    return this._getRenderFn().then(function (renderFn) {
-      const items = self._getRenderItems(renderFn, result);
+      this._currentPageIndex = params.paging.pageIndex;
+      this._endOfPagedList = (items.length < this.props.pageSize);
 
-      self._currentPageIndex = params.paging.pageIndex;
-      self._endOfPagedList = (items.length < self.props.pageSize);
-
-      self.setState({
-        renderItems: [...self.state.renderItems, ...items]
+      this.setState({
+        renderItems: [...this.state.renderItems, ...items]
       });
     });
   }
@@ -711,71 +712,6 @@ export default class AutoComplete extends React.Component {
     this._currentPageIndex = 0;
     this._endOfPagedList = false;
   }
-}
-
-function HelperService() {
-  var self = this;
-  var components = [];
-  var instanceCount = 0;
-  var activeInstanceId = 0;
-
-  this.registerComponent = function (component) {
-    if (component) {
-      components.push(component);
-      return ++instanceCount;
-    }
-
-    return -1;
-  };
-
-  this.setActiveInstanceId = function (instanceId) {
-    activeInstanceId = instanceId;
-    self.hideAllInactive();
-  };
-
-  this.hideAllInactive = function () {
-    components.forEach(component => {
-      // hide if this is not the active instance
-      if (component._instanceId !== activeInstanceId) {
-        component._autoHide();
-      }
-    });
-  };
-}
-
-const DOM_EVENT = {
-  RESIZE: 'resize',
-  SCROLL: 'scroll',
-  CLICK: 'click',
-  KEYDOWN: 'keydown',
-  FOCUS: 'focus',
-  INPUT: 'input'
-};
-
-const KEYCODE = {
-  TAB: 9,
-  ENTER: 13,
-  CTRL: 17,
-  ALT: 18,
-  ESCAPE: 27,
-  LEFTARROW: 37,
-  UPARROW: 38,
-  RIGHTARROW: 39,
-  DOWNARROW: 40,
-  MAC_COMMAND_LEFT: 91,
-  MAC_COMMAND_RIGHT: 93
-};
-
-function ignoreKeyCode(keyCode) {
-  return [
-    KEYCODE.TAB,
-    KEYCODE.ALT,
-    KEYCODE.CTRL,
-    KEYCODE.LEFTARROW,
-    KEYCODE.RIGHTARROW,
-    KEYCODE.MAC_COMMAND_LEFT,
-    KEYCODE.MAC_COMMAND_RIGHT
-  ].indexOf(keyCode) !== -1;
 }
 
 const Fn = { noop: () => { } };
@@ -1050,3 +986,67 @@ AutoCompleteList.propTypes = {
   onItemClick: PropTypes.func.isRequired,
   onScroll: PropTypes.func.isRequired
 };
+
+function HelperService() {
+  var components = [];
+  var instanceCount = 0;
+  var activeInstanceId = 0;
+
+  this.registerComponent = component => {
+    if (component) {
+      components.push(component);
+      return ++instanceCount;
+    }
+
+    return -1;
+  };
+
+  this.setActiveInstanceId = instanceId => {
+    activeInstanceId = instanceId;
+    this.hideAllInactive();
+  };
+
+  this.hideAllInactive = () => {
+    components.forEach(component => {
+      // hide if this is not the active instance
+      if (component._instanceId !== activeInstanceId) {
+        component._autoHide();
+      }
+    });
+  };
+}
+
+const DOM_EVENT = {
+  RESIZE: 'resize',
+  SCROLL: 'scroll',
+  CLICK: 'click',
+  KEYDOWN: 'keydown',
+  FOCUS: 'focus',
+  INPUT: 'input'
+};
+
+const KEYCODE = {
+  TAB: 9,
+  ENTER: 13,
+  CTRL: 17,
+  ALT: 18,
+  ESCAPE: 27,
+  LEFTARROW: 37,
+  UPARROW: 38,
+  RIGHTARROW: 39,
+  DOWNARROW: 40,
+  MAC_COMMAND_LEFT: 91,
+  MAC_COMMAND_RIGHT: 93
+};
+
+function ignoreKeyCode(keyCode) {
+  return [
+    KEYCODE.TAB,
+    KEYCODE.ALT,
+    KEYCODE.CTRL,
+    KEYCODE.LEFTARROW,
+    KEYCODE.RIGHTARROW,
+    KEYCODE.MAC_COMMAND_LEFT,
+    KEYCODE.MAC_COMMAND_RIGHT
+  ].indexOf(keyCode) !== -1;
+}
