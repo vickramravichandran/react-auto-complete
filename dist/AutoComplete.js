@@ -1172,7 +1172,13 @@ var AutoComplete = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this._subscribeDOMEvents();
-      this._safeCallback(this.props.ready);
+
+      var publicApi = {
+        positionDropdown: this._positionDropdownIfVisible.bind(this),
+        hideDropdown: this._hideDropdown.bind(this)
+      };
+
+      this._safeCallback(this.props.ready, publicApi);
     }
   }, {
     key: 'componentDidUpdate',
@@ -1635,7 +1641,8 @@ var AutoComplete = function (_React$Component) {
   }, {
     key: '_queryAndRender',
     value: function _queryAndRender(params, renderListFn) {
-      var self = this;
+      var _this5 = this;
+
       var options = this.props;
 
       // backup original search term in case we need to restore if user hits ESCAPE
@@ -1646,21 +1653,21 @@ var AutoComplete = function (_React$Component) {
 
       return Promise.resolve(options.data(params.searchText, params.paging)).then(function (result) {
 
-        if (self._shouldHideDropdown(params, result)) {
-          self._autoHide();
+        if (_this5._shouldHideDropdown(params, result)) {
+          _this5._autoHide();
           return;
         }
 
-        renderListFn(result).then(self._show);
+        renderListFn(result).then(_this5._show);
 
         // callback
-        self._safeCallback(options.loadingComplete);
+        _this5._safeCallback(options.loadingComplete);
       }).catch(function (error) {
-        self._autoHide();
+        _this5._autoHide();
         // callback
-        self._safeCallback(options.loadingComplete, { error: error });
+        _this5._safeCallback(options.loadingComplete, { error: error });
       }).then(function () {
-        self.setState({ dataLoadInProgress: false });
+        _this5.setState({ dataLoadInProgress: false });
       });
     }
   }, {
@@ -1786,35 +1793,35 @@ var AutoComplete = function (_React$Component) {
   }, {
     key: '_renderList',
     value: function _renderList(params, result) {
+      var _this6 = this;
+
       if (_.isEmpty(result)) {
         return [];
       }
 
-      var self = this;
-
       return this._getRenderFn().then(function (renderFn) {
-        self.setState({
-          renderItems: self._getRenderItems(renderFn, result)
+        _this6.setState({
+          renderItems: _this6._getRenderItems(renderFn, result)
         });
       });
     }
   }, {
     key: '_renderPagedList',
     value: function _renderPagedList(params, result) {
+      var _this7 = this;
+
       if (_.isEmpty(result)) {
         return [];
       }
 
-      var self = this;
-
       return this._getRenderFn().then(function (renderFn) {
-        var items = self._getRenderItems(renderFn, result);
+        var items = _this7._getRenderItems(renderFn, result);
 
-        self._currentPageIndex = params.paging.pageIndex;
-        self._endOfPagedList = items.length < self.props.pageSize;
+        _this7._currentPageIndex = params.paging.pageIndex;
+        _this7._endOfPagedList = items.length < _this7.props.pageSize;
 
-        self.setState({
-          renderItems: [].concat(_toConsumableArray(self.state.renderItems), _toConsumableArray(items))
+        _this7.setState({
+          renderItems: [].concat(_toConsumableArray(_this7.state.renderItems), _toConsumableArray(items))
         });
       });
     }
@@ -1904,63 +1911,6 @@ var AutoComplete = function (_React$Component) {
 
 exports.default = AutoComplete;
 
-
-function HelperService() {
-  var self = this;
-  var components = [];
-  var instanceCount = 0;
-  var activeInstanceId = 0;
-
-  this.registerComponent = function (component) {
-    if (component) {
-      components.push(component);
-      return ++instanceCount;
-    }
-
-    return -1;
-  };
-
-  this.setActiveInstanceId = function (instanceId) {
-    activeInstanceId = instanceId;
-    self.hideAllInactive();
-  };
-
-  this.hideAllInactive = function () {
-    components.forEach(function (component) {
-      // hide if this is not the active instance
-      if (component._instanceId !== activeInstanceId) {
-        component._autoHide();
-      }
-    });
-  };
-}
-
-var DOM_EVENT = {
-  RESIZE: 'resize',
-  SCROLL: 'scroll',
-  CLICK: 'click',
-  KEYDOWN: 'keydown',
-  FOCUS: 'focus',
-  INPUT: 'input'
-};
-
-var KEYCODE = {
-  TAB: 9,
-  ENTER: 13,
-  CTRL: 17,
-  ALT: 18,
-  ESCAPE: 27,
-  LEFTARROW: 37,
-  UPARROW: 38,
-  RIGHTARROW: 39,
-  DOWNARROW: 40,
-  MAC_COMMAND_LEFT: 91,
-  MAC_COMMAND_RIGHT: 93
-};
-
-function ignoreKeyCode(keyCode) {
-  return [KEYCODE.TAB, KEYCODE.ALT, KEYCODE.CTRL, KEYCODE.LEFTARROW, KEYCODE.RIGHTARROW, KEYCODE.MAC_COMMAND_LEFT, KEYCODE.MAC_COMMAND_RIGHT].indexOf(keyCode) !== -1;
-}
 
 var Fn = { noop: function noop() {} };
 AutoComplete.defaultProps = {
@@ -2139,11 +2089,11 @@ var AutoCompleteList = function (_Component) {
   function AutoCompleteList(props) {
     _classCallCheck(this, AutoCompleteList);
 
-    var _this5 = _possibleConstructorReturn(this, (AutoCompleteList.__proto__ || Object.getPrototypeOf(AutoCompleteList)).call(this, props));
+    var _this8 = _possibleConstructorReturn(this, (AutoCompleteList.__proto__ || Object.getPrototypeOf(AutoCompleteList)).call(this, props));
 
-    _this5.state = {};
-    _this5.scrollToItem = _this5.scrollToItem.bind(_this5);
-    return _this5;
+    _this8.state = {};
+    _this8.scrollToItem = _this8.scrollToItem.bind(_this8);
+    return _this8;
   }
 
   _createClass(AutoCompleteList, [{
@@ -2159,7 +2109,7 @@ var AutoCompleteList = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this6 = this;
+      var _this9 = this;
 
       var style = {
         maxHeight: this.props.dropdownHeight
@@ -2169,7 +2119,7 @@ var AutoCompleteList = function (_Component) {
         'ul',
         {
           ref: function ref(x) {
-            return _this6._elementUL = x;
+            return _this9._elementUL = x;
           },
           style: style,
           className: 'auto-complete-results'
@@ -2200,19 +2150,19 @@ var AutoCompleteList = function (_Component) {
   }, {
     key: '_renderListItems',
     value: function _renderListItems() {
-      var _this7 = this;
+      var _this10 = this;
 
       var selectedCssClass = this._getSelectedCssClass();
 
       return this.props.items.map(function (item, index) {
 
-        var classNames = (0, _classnames3.default)('auto-complete-item', _defineProperty({}, selectedCssClass, index === _this7.props.selectedIndex));
+        var classNames = (0, _classnames3.default)('auto-complete-item', _defineProperty({}, selectedCssClass, index === _this10.props.selectedIndex));
 
         return _react2.default.createElement(
           'li',
           { key: item.id,
             onClick: function onClick() {
-              return _this7.props.onItemClick(index, true);
+              return _this10.props.onItemClick(index, true);
             },
             className: classNames,
             'data-index': index
@@ -2257,6 +2207,64 @@ AutoCompleteList.propTypes = {
   onItemClick: _propTypes2.default.func.isRequired,
   onScroll: _propTypes2.default.func.isRequired
 };
+
+function HelperService() {
+  var _this11 = this;
+
+  var components = [];
+  var instanceCount = 0;
+  var activeInstanceId = 0;
+
+  this.registerComponent = function (component) {
+    if (component) {
+      components.push(component);
+      return ++instanceCount;
+    }
+
+    return -1;
+  };
+
+  this.setActiveInstanceId = function (instanceId) {
+    activeInstanceId = instanceId;
+    _this11.hideAllInactive();
+  };
+
+  this.hideAllInactive = function () {
+    components.forEach(function (component) {
+      // hide if this is not the active instance
+      if (component._instanceId !== activeInstanceId) {
+        component._autoHide();
+      }
+    });
+  };
+}
+
+var DOM_EVENT = {
+  RESIZE: 'resize',
+  SCROLL: 'scroll',
+  CLICK: 'click',
+  KEYDOWN: 'keydown',
+  FOCUS: 'focus',
+  INPUT: 'input'
+};
+
+var KEYCODE = {
+  TAB: 9,
+  ENTER: 13,
+  CTRL: 17,
+  ALT: 18,
+  ESCAPE: 27,
+  LEFTARROW: 37,
+  UPARROW: 38,
+  RIGHTARROW: 39,
+  DOWNARROW: 40,
+  MAC_COMMAND_LEFT: 91,
+  MAC_COMMAND_RIGHT: 93
+};
+
+function ignoreKeyCode(keyCode) {
+  return [KEYCODE.TAB, KEYCODE.ALT, KEYCODE.CTRL, KEYCODE.LEFTARROW, KEYCODE.RIGHTARROW, KEYCODE.MAC_COMMAND_LEFT, KEYCODE.MAC_COMMAND_RIGHT].indexOf(keyCode) !== -1;
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
