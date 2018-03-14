@@ -38,7 +38,9 @@ var _ScrollableList = __webpack_require__(74);
 
 var _ScrollableList2 = _interopRequireDefault(_ScrollableList);
 
-__webpack_require__(75);
+var _ConfigOptions = __webpack_require__(75);
+
+var _ConfigOptions2 = _interopRequireDefault(_ConfigOptions);
 
 __webpack_require__(76);
 
@@ -46,9 +48,11 @@ __webpack_require__(77);
 
 __webpack_require__(78);
 
+__webpack_require__(79);
+
 __webpack_require__(31);
 
-__webpack_require__(79);
+__webpack_require__(80);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -76,37 +80,42 @@ var App = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         "div",
-        { className: "container-fluid" },
+        null,
         _react2.default.createElement(
           "div",
-          { className: "row", id: "simple-list" },
-          _react2.default.createElement(_SimpleList2.default, null)
+          { className: "container-fluid" },
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "simple-list" },
+            _react2.default.createElement(_SimpleList2.default, null)
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "custom-list" },
+            _react2.default.createElement(_CustomList2.default, null)
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "remote-data-source" },
+            _react2.default.createElement(_RemoteDataSource2.default, null)
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "remote-data-source-with-paging" },
+            _react2.default.createElement(_RemoteDataWithPaging2.default, null)
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "activate-on-focus" },
+            _react2.default.createElement(_ActivateOnFocus2.default, null)
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "scrollable-list" },
+            _react2.default.createElement(_ScrollableList2.default, null)
+          )
         ),
-        _react2.default.createElement(
-          "div",
-          { className: "row", id: "custom-list" },
-          _react2.default.createElement(_CustomList2.default, null)
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "row", id: "remote-data-source" },
-          _react2.default.createElement(_RemoteDataSource2.default, null)
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "row", id: "remote-data-source-with-paging" },
-          _react2.default.createElement(_RemoteDataWithPaging2.default, null)
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "row", id: "activate-on-focus" },
-          _react2.default.createElement(_ActivateOnFocus2.default, null)
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "row", id: "scrollable-list" },
-          _react2.default.createElement(_ScrollableList2.default, null)
-        )
+        _react2.default.createElement(_ConfigOptions2.default, null)
       );
     }
   }]);
@@ -23248,7 +23257,7 @@ __webpack_require__(8);
 
 var _Helper = __webpack_require__(9);
 
-var _axios = __webpack_require__(12);
+var _axios = __webpack_require__(11);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -23379,7 +23388,7 @@ __webpack_require__(8);
 
 var _Helper = __webpack_require__(9);
 
-var _axios = __webpack_require__(12);
+var _axios = __webpack_require__(11);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -23628,7 +23637,7 @@ __webpack_require__(8);
 
 var _Helper = __webpack_require__(9);
 
-var _axios = __webpack_require__(12);
+var _axios = __webpack_require__(11);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -23750,9 +23759,237 @@ exports.default = ScrollableList;
 /***/ }),
 
 /***/ 75:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(11);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ConfigOptions = function (_React$PureComponent) {
+  _inherits(ConfigOptions, _React$PureComponent);
+
+  function ConfigOptions(props) {
+    _classCallCheck(this, ConfigOptions);
+
+    var _this = _possibleConstructorReturn(this, (ConfigOptions.__proto__ || Object.getPrototypeOf(ConfigOptions)).call(this, props));
+
+    _this.state = {
+      options: [],
+      moreDocs: {
+        ready: {
+          docArray: [{
+            'positionDropdown()': 'Positions the dropdown list'
+          }, {
+            'hideDropdown()': 'Hides the dropdown list'
+          }]
+        }
+      }
+    };
+    return _this;
+  }
+
+  _createClass(ConfigOptions, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios2.default.get('docs.json').then(function (response) {
+        _this2._processResponse(response);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "config-options" },
+        _react2.default.createElement(
+          "h2",
+          { id: "config-options" },
+          "Options"
+        ),
+        _react2.default.createElement(
+          "ul",
+          { className: "options" },
+          this._renderOptionListItems()
+        )
+      );
+    }
+  }, {
+    key: "_renderOptionListItems",
+    value: function _renderOptionListItems() {
+      var _this3 = this;
+
+      return this.state.options.map(function (option) {
+        return _react2.default.createElement(
+          "li",
+          { key: option.name },
+          _react2.default.createElement(
+            "h5",
+            null,
+            option.name
+          ),
+          option.bindAsHtml ? _react2.default.createElement("p", { dangerouslySetInnerHTML: { __html: option.description } }) : _react2.default.createElement(
+            "p",
+            null,
+            option.description
+          ),
+          _this3._renderDocArray(option.docArray),
+          _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement(
+              "i",
+              null,
+              "default: ",
+              _react2.default.createElement(
+                "span",
+                null,
+                option.default
+              )
+            )
+          )
+        );
+      });
+    }
+  }, {
+    key: "_renderDocArray",
+    value: function _renderDocArray(docArray) {
+      if (_.isEmpty(docArray)) {
+        return null;
+      }
+
+      var listItems = docArray.map(function (arr, index) {
+        return _react2.default.createElement(
+          "li",
+          { key: index },
+          _.map(arr, function (key, val) {
+            return _react2.default.createElement(
+              "span",
+              { key: key },
+              _react2.default.createElement(
+                "b",
+                null,
+                key,
+                ":"
+              ),
+              " ",
+              val
+            );
+          })
+        );
+      });
+
+      return _react2.default.createElement(
+        "ul",
+        null,
+        listItems
+      );
+    }
+  }, {
+    key: "_processResponse",
+    value: function _processResponse(response) {
+      if (!response) {
+        return;
+      }
+
+      this.setState({ options: this._createOptions(response.data) || [] });
+    }
+  }, {
+    key: "_createOptions",
+    value: function _createOptions(jsDocs) {
+      var _this4 = this;
+
+      if (_.isEmpty(jsDocs)) {
+        return;
+      }
+
+      var defaultOptions = jsDocs.filter(function (jsDoc) {
+        return jsDoc.memberof === 'AutoComplete.defaultProps';
+      });
+      if (_.isEmpty(defaultOptions)) {
+        return;
+      }
+
+      return defaultOptions.map(function (jsDoc) {
+        var optionName = jsDoc.name;
+
+        var doc = {
+          name: optionName,
+          description: _this4._getDescription(jsDoc),
+          default: _this4._getDescriptionFromTag(jsDoc, 'default'),
+          bindAsHtml: _this4._getDescriptionFromTag(jsDoc, 'bindAsHtml') === 'true'
+        };
+
+        if (_this4.state.moreDocs[optionName]) {
+          doc = _.merge({}, doc, _this4.state.moreDocs[optionName]);
+        }
+
+        return doc;
+      });
+    }
+  }, {
+    key: "_getDescription",
+    value: function _getDescription(jsDoc) {
+      return this._getDescriptionFromTag(jsDoc, 'description') || this._getDescriptionParagraph(jsDoc);
+    }
+  }, {
+    key: "_getDescriptionParagraph",
+    value: function _getDescriptionParagraph(jsDoc) {
+      if (!jsDoc || !jsDoc.description || _.isEmpty(jsDoc.description.children)) {
+        return;
+      }
+
+      var paragraph = _.find(jsDoc.description.children, { type: 'paragraph' });
+      if (!paragraph || _.isEmpty(paragraph.children)) {
+        return;
+      }
+
+      return _.reduce(paragraph.children, function (memo, child) {
+        return memo + child.value;
+      }, '');
+    }
+  }, {
+    key: "_getDescriptionFromTag",
+    value: function _getDescriptionFromTag(jsDoc, tagTitle) {
+      if (!jsDoc || _.isEmpty(jsDoc.tags)) {
+        return;
+      }
+
+      var tag = _.find(jsDoc.tags, { title: tagTitle });
+      if (!tag) {
+        return;
+      }
+
+      return tag.description;
+    }
+  }]);
+
+  return ConfigOptions;
+}(_react2.default.PureComponent);
+
+exports.default = ConfigOptions;
 
 /***/ }),
 
@@ -23771,6 +24008,13 @@ exports.default = ScrollableList;
 /***/ }),
 
 /***/ 78:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 79:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23799,7 +24043,14 @@ global.window.fixScale = function (doc) {
 
 /***/ }),
 
-/***/ 79:
+/***/ 8:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 80:
 /***/ (function(module, exports) {
 
 (function(Prism) {
@@ -23840,13 +24091,6 @@ Prism.languages.insertBefore('inside', 'attr-value',{
 
 }(Prism));
 
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 

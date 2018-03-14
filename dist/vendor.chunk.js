@@ -812,6 +812,12 @@ module.exports = warning;
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(49);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -874,12 +880,6 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(49);
 
 /***/ }),
 /* 13 */,
@@ -2621,7 +2621,7 @@ __webpack_require__(17);
 __webpack_require__(42);
 __webpack_require__(45);
 __webpack_require__(48);
-__webpack_require__(12);
+__webpack_require__(11);
 module.exports = __webpack_require__(31);
 
 
@@ -2680,7 +2680,7 @@ var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(6);
 var warning = __webpack_require__(10);
 var emptyFunction = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(11);
+var checkPropTypes = __webpack_require__(12);
 
 // TODO: this is special because it gets imported during build.
 
@@ -4344,7 +4344,7 @@ var shallowEqual = __webpack_require__(21);
 var containsNode = __webpack_require__(22);
 var focusNode = __webpack_require__(23);
 var emptyObject = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(11);
+var checkPropTypes = __webpack_require__(12);
 var hyphenateStyleName = __webpack_require__(15);
 var camelizeStyleName = __webpack_require__(24);
 
@@ -19877,7 +19877,7 @@ var emptyObject = __webpack_require__(5);
 var hyphenateStyleName = __webpack_require__(15);
 var memoizeStringOnly = __webpack_require__(25);
 var warning = __webpack_require__(10);
-var checkPropTypes = __webpack_require__(11);
+var checkPropTypes = __webpack_require__(12);
 var camelizeStyleName = __webpack_require__(24);
 
 /**
@@ -22454,7 +22454,7 @@ var warning = __webpack_require__(10);
 var assign = __webpack_require__(4);
 
 var ReactPropTypesSecret = __webpack_require__(14);
-var checkPropTypes = __webpack_require__(11);
+var checkPropTypes = __webpack_require__(12);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
