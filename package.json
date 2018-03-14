@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "webpack": "npm run clean && webpack --config webpack.config.js"
+    "docs": "documentation build node_modules/@vickram/react-auto-complete/src/AutoComplete.js -o dist/docs.json -f json",
+    "webpack": "npm run clean && npm run docs && webpack --config webpack.config.js"
   },
   "keywords": [
     "react",

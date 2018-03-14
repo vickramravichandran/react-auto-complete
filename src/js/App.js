@@ -9,6 +9,8 @@ import ActivateOnFocus from "examples/ActivateOnFocus";
 import ScrollableList from "examples/ScrollableList";
 /*---examples---*/
 
+import ConfigOptions from "ConfigOptions";
+
 import "css/main.css";
 import "css/prism-oceanic-next.css";
 import "css/app.css";
@@ -19,27 +21,32 @@ import "prismjs/components/prism-jsx";
 
 class App extends React.PureComponent {
   render() {
-    
+
     return (
-      <div className="container-fluid">
-        <div className="row" id="simple-list">
-          <SimpleList />
+      <div>
+        <div className="container-fluid">
+          <div className="row" id="simple-list">
+            <SimpleList />
+          </div>
+          <div className="row" id="custom-list">
+            <CustomList />
+          </div>
+          <div className="row" id="remote-data-source">
+            <RemoteDataSource />
+          </div>
+          <div className="row" id="remote-data-source-with-paging">
+            <RemoteDataWithPaging />
+          </div>
+          <div className="row" id="activate-on-focus">
+            <ActivateOnFocus />
+          </div>
+          <div className="row" id="scrollable-list">
+            <ScrollableList />
+          </div>
         </div>
-        <div className="row" id="custom-list">
-          <CustomList />
-        </div>
-        <div className="row" id="remote-data-source">
-          <RemoteDataSource />
-        </div>
-        <div className="row" id="remote-data-source-with-paging">
-          <RemoteDataWithPaging />
-        </div>
-        <div className="row" id="activate-on-focus">
-          <ActivateOnFocus />
-        </div>
-        <div className="row" id="scrollable-list">
-          <ScrollableList />
-        </div>
+
+        <ConfigOptions />
+
       </div>
     );
   }
