@@ -1398,6 +1398,7 @@ var AutoComplete = function (_React$Component) {
     _this._elementComponent = null;
 
     _this.state = {
+      searchText: null,
       dataLoadInProgress: false,
       containerVisible: _this.props.isInline,
       selectedIndex: -1,
@@ -1449,38 +1450,38 @@ var AutoComplete = function (_React$Component) {
         return this._getAutoCompleteList();
       }
 
-      if (!_.isEmpty(this.props.children)) {
-
-        var children = _react2.default.cloneElement(this.props.children, {
-          ref: function ref(element) {
-            if (!element || element === _this2._elementComponent) {
-              return;
-            }
-
-            _this2._elementComponent = element;
-
-            if (element.tagName.toUpperCase() === 'INPUT') {
-              return _this2.initialize(element);
-            }
-
-            var inputElement = element.querySelector('input');
-            if (inputElement) {
-              return _this2.initialize(inputElement);
-            }
-
-            console.warn('No input element was found in props.children collection');
-          }
-        });
-
-        return _react2.default.createElement(
-          _react2.default.Fragment,
-          null,
-          children,
-          this._getContainer()
-        );
+      if (_.isEmpty(this.props.children)) {
+        return _reactDom2.default.createPortal(this._getContainer(), WINDOW.document.body);
       }
 
-      return _reactDom2.default.createPortal(this._getContainer(), WINDOW.document.body);
+      var children = _react2.default.cloneElement(this.props.children, {
+        ref: function ref(element) {
+          if (!element || element === _this2._elementComponent) {
+            return;
+          }
+
+          _this2._elementComponent = element;
+
+          if (element.tagName.toUpperCase() === 'INPUT') {
+            return _this2.initialize(element);
+          }
+
+          var inputElement = element.querySelector('input');
+          if (inputElement) {
+            return _this2.initialize(inputElement);
+          }
+
+          console.warn('No input element was found in props.children collection');
+          return null;
+        }
+      });
+
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        children,
+        this._getContainer()
+      );
     }
   }, {
     key: '_bindMethods',
@@ -1539,9 +1540,12 @@ var AutoComplete = function (_React$Component) {
         ref: function ref(x) {
           return _this4._autoCompleteList = x;
         },
+        searchText: this.state.searchText,
         items: this.state.renderItems,
         selectedIndex: this.state.selectedIndex,
         dropdownHeight: this.state.dropdownHeight,
+        noMatchItemEnabled: this.props.noMatchItemEnabled,
+        renderNoMatchItem: this.props.renderNoMatchItem,
         getSelectedCssClass: this._getSelectedCssClass,
         onItemClick: this._selectItem,
         onScroll: this._handleScroll
@@ -1694,6 +1698,7 @@ var AutoComplete = function (_React$Component) {
           break;
 
         default:
+          break;
       }
     }
   }, {
@@ -1713,7 +1718,12 @@ var AutoComplete = function (_React$Component) {
     key: '_activate',
     value: function _activate() {
       helperService.setActiveInstanceId(this._instanceId);
-      this._originalSearchText = null;
+      // do not reset if the container (dropdown list) is currently visible
+      // Ex: Switching to a different tab or window and switching back
+      // again when the dropdown list is visible.
+      if (!this.state.containerVisible) {
+        this._originalSearchText = null;
+      }
     }
   }, {
     key: '_resetAndQuery',
@@ -1782,6 +1792,11 @@ var AutoComplete = function (_React$Component) {
         this._loadNextPage();
       }
     }
+
+    /**
+     * @param {number} itemOffset 
+     */
+
   }, {
     key: '_getItemIndexFromOffset',
     value: function _getItemIndexFromOffset(itemOffset) {
@@ -1792,6 +1807,11 @@ var AutoComplete = function (_React$Component) {
 
       return itemIndex;
     }
+
+    /**
+     * @param {number} itemIndex 
+     */
+
   }, {
     key: '_scrollToItem',
     value: function _scrollToItem(itemIndex) {
@@ -1818,11 +1838,22 @@ var AutoComplete = function (_React$Component) {
         this._safeCallback(this.props.itemSelected, { item: item.data });
       }
     }
+
+    /**
+     * @param {number} itemIndex 
+     * @returns {string}
+     */
+
   }, {
     key: '_getSelectedCssClass',
     value: function _getSelectedCssClass(itemIndex) {
       return itemIndex === this.state.selectedIndex ? this.props.selectedCssClass : '';
     }
+
+    /**
+     * @param {string} searchText
+     */
+
   }, {
     key: '_tryQuery',
     value: function _tryQuery(searchText) {
@@ -1834,6 +1865,12 @@ var AutoComplete = function (_React$Component) {
 
       this._autoHide();
     }
+
+    /**
+     * @param {string} searchText
+     * @param {number} delay
+     */
+
   }, {
     key: '_waitAndQuery',
     value: function _waitAndQuery(searchText, delay) {
@@ -1860,10 +1897,17 @@ var AutoComplete = function (_React$Component) {
     value: function _loadNextPage() {
       return this._query(this._originalSearchText, this._currentPageIndex + 1);
     }
+
+    /**
+     * @param {string} searchText
+     * @param {number} pageIndex
+     */
+
   }, {
     key: '_query',
     value: function _query(searchText, pageIndex) {
-      var params = {
+      /** @type {QueryArgs} */
+      var queryArgs = {
         searchText: searchText,
         paging: {
           pageIndex: pageIndex,
@@ -1874,46 +1918,67 @@ var AutoComplete = function (_React$Component) {
 
       var renderListFn = this.props.pagingEnabled ? this._renderPagedList : this._renderList;
 
-      return this._queryAndRender(params, renderListFn.bind(this, params));
+      return this._queryAndRender(queryArgs, renderListFn.bind(this, queryArgs));
     }
+
+    /**
+     * @param {QueryArgs} queryArgs
+     * @param {function(Array): Promise} renderListFn
+     */
+
   }, {
     key: '_queryAndRender',
-    value: function _queryAndRender(params, renderListFn) {
+    value: function _queryAndRender(queryArgs, renderListFn) {
       var _this5 = this;
 
       var options = this.props;
 
       // backup original search term in case we need to restore if user hits ESCAPE
-      this._originalSearchText = params.searchText;
-      this.setState({ dataLoadInProgress: true });
+      this._originalSearchText = queryArgs.searchText;
+      this.setState({
+        dataLoadInProgress: true,
+        searchText: queryArgs.searchText
+      });
 
       this._safeCallback(options.loading);
 
-      return Promise.resolve(options.data(params.searchText, params.paging)).then(function (result) {
-
-        if (_this5._shouldHideDropdown(params, result)) {
+      return Promise.resolve(options.data(queryArgs.searchText, queryArgs.paging)).then(function (data) {
+        // verify that the queryId did not change since the possibility exists that the
+        // search text changed before the 'data' promise was resolved. Say, due to a lag
+        // in getting data from a remote web service.
+        if (_this5._didQueryIdChange(queryArgs)) {
           _this5._autoHide();
           return;
         }
 
-        renderListFn(result).then(_this5._show);
+        if (_this5._shouldHideDropdown(queryArgs, data)) {
+          _this5._autoHide();
+          return;
+        }
+
+        renderListFn(data).then(_this5._show);
 
         // callback
         _this5._safeCallback(options.loadingComplete);
       }).catch(function (error) {
-        _this5._autoHide();
         // callback
         _this5._safeCallback(options.loadingComplete, { error: error });
-      }).then(function () {
+      }).finally(function () {
         _this5.setState({ dataLoadInProgress: false });
       });
     }
+
+    /**
+     * @param {function()} callback
+     * @param {Object} callbackArgs
+     */
+
   }, {
     key: '_safeCallback',
-    value: function _safeCallback(fn, args) {
+    value: function _safeCallback(callback, callbackArgs) {
       try {
-        if (_.isFunction(fn)) {
-          fn.call(this._target, args);
+        if (_.isFunction(callback)) {
+          callback.call(this._target, callbackArgs);
         }
       } catch (ex) {
         //ignore
@@ -1935,7 +2000,15 @@ var AutoComplete = function (_React$Component) {
       }
 
       var options = this.props;
-      var width = (options.dropdownWidth || this._target.getBoundingClientRect().width) + 'px';
+
+      var width = null;
+      if (options.dropdownWidth && options.dropdownWidth !== 'auto') {
+        width = options.dropdownWidth;
+      } else {
+        // same as textbox width
+        width = this._target.getBoundingClientRect().width + 'px';
+      }
+
       var height = options.dropdownHeight ? options.dropdownHeight + 'px' : null;
 
       this.setState({
@@ -2007,74 +2080,122 @@ var AutoComplete = function (_React$Component) {
       // callback
       this._safeCallback(this.props.dropdownHidden);
     }
+
+    /**
+     * @param {QueryArgs} queryArgs
+     * @param {Array} data
+     * @returns {boolean}
+     */
+
   }, {
     key: '_shouldHideDropdown',
-    value: function _shouldHideDropdown(params, result) {
-      // verify the queryId since there might be some lag when getting data from a remote web service.
-      if (params.queryId !== this._queryCounter) {
-        return true;
+    value: function _shouldHideDropdown(queryArgs, data) {
+      // do not hide the dropdown if the no match item is enabled
+      // because the no match item is rendered within the dropdown container
+      if (this.props.noMatchItemEnabled) {
+        return false;
       }
 
-      // do we have results to render?
-      var hasResult = result && result.length !== 0;
-      if (hasResult) {
+      // do we have data to render?
+      if (!_.isEmpty(data)) {
         return false;
       }
 
       // if paging is enabled hide the dropdown only when rendering the first page
       if (this.props.pagingEnabled) {
-        return params.paging.pageIndex === 0;
+        return queryArgs.paging.pageIndex === 0;
       }
 
       return true;
     }
+
+    /**
+     * @param {QueryArgs} queryArgs
+     * @returns {boolean}
+     */
+
+  }, {
+    key: '_didQueryIdChange',
+    value: function _didQueryIdChange(queryArgs) {
+      return queryArgs.queryId !== this._queryCounter;
+    }
+
+    /**
+     * @param {QueryArgs} queryArgs
+     * @param {Array} data
+     * @returns {Promise}
+     */
+
   }, {
     key: '_renderList',
-    value: function _renderList(params, result) {
+    value: function _renderList(queryArgs, data) {
       var _this6 = this;
 
-      if (_.isEmpty(result)) {
-        return [];
+      if (_.isEmpty(data)) {
+        return Promise.resolve();
       }
 
-      return this._getRenderFn().then(function (renderFn) {
+      return this._getRenderItemFn().then(function (renderItemFn) {
         _this6.setState({
-          renderItems: _this6._getRenderItems(renderFn, result)
+          renderItems: _this6._getRenderItems(renderItemFn, data, queryArgs)
         });
       });
     }
+
+    /**
+     * @param {QueryArgs} queryArgs 
+     * @param {Array} data 
+     * @returns {Promise}
+     */
+
   }, {
     key: '_renderPagedList',
-    value: function _renderPagedList(params, result) {
+    value: function _renderPagedList(queryArgs, data) {
       var _this7 = this;
 
-      if (_.isEmpty(result)) {
-        return [];
+      if (_.isEmpty(data)) {
+        return Promise.resolve();
       }
 
-      return this._getRenderFn().then(function (renderFn) {
-        var items = _this7._getRenderItems(renderFn, result);
+      return this._getRenderItemFn().then(function (renderItemFn) {
+        var items = _this7._getRenderItems(renderItemFn, data, queryArgs);
 
-        _this7._currentPageIndex = params.paging.pageIndex;
+        _this7._currentPageIndex = queryArgs.paging.pageIndex;
         _this7._endOfPagedList = items.length < _this7.props.pageSize;
 
+        // in case of paged list we add to the array instead of replacing it
         _this7.setState({
           renderItems: [].concat(_toConsumableArray(_this7.state.renderItems), _toConsumableArray(items))
         });
       });
     }
+
+    /**
+     * @param {function(RenderItemArgs): Item} renderItemFn 
+     * @param {Array} data
+     * @param {QueryArgs} queryArgs
+     * @returns {Array.<Item>}
+     */
+
   }, {
     key: '_getRenderItems',
-    value: function _getRenderItems(renderFn, dataItems) {
+    value: function _getRenderItems(renderItemFn, data, queryArgs) {
       // limit number of items rendered in the dropdown
-      var maxItemsToRender = dataItems.length < this.props.maxItemsToRender ? dataItems.length : this.props.maxItemsToRender;
-      var dataItemsToRender = dataItems.slice(0, maxItemsToRender);
+      var dataItemsToRender = _.slice(data, 0, this.props.maxItemsToRender);
 
       var itemsToRender = dataItemsToRender.map(function (data, index) {
-        // invoke render callback with the data as parameter
-        // this should return an object with a 'label' and 'value' property where
-        // 'label' is the safe html for display and 'value' is the text for the textbox
-        var item = renderFn(data);
+        // invoke render callback
+        // this should return an object with 'label' and 'value' properties where
+        // 'label' is for display and 'value' is the text for the textbox
+        // If the object has an 'id' property, it will be used as the 'key' in the dropdown list
+
+        /** @type {RenderItemArgs} */
+        var renderItemArgs = {
+          data: data,
+          index: index,
+          searchText: queryArgs.searchText
+        };
+        var item = renderItemFn(renderItemArgs);
 
         if (!item || !item.hasOwnProperty('label') || !item.hasOwnProperty('value')) {
           return null;
@@ -2082,35 +2203,45 @@ var AutoComplete = function (_React$Component) {
 
         // store the data on the item itself
         item.data = data;
-        // unique 'id' for use in the 'key' in the dropdown list template
-        if (!item.hasOwnProperty('id') || !_.isString(item.id)) {
-          item.id = item.value + item.label + index;
-        }
+        // unique 'id' for use in the 'key' in the dropdown list
+        item.id = item.hasOwnProperty('id') ? item.id : item.value + item.label + index;
 
         return item;
       });
 
-      return itemsToRender.filter(function (item) {
+      return _.filter(itemsToRender, function (item) {
         return item !== null;
       });
     }
-  }, {
-    key: '_getRenderFn',
-    value: function _getRenderFn() {
-      var renderItem = this.props.renderItem;
 
+    /**
+     * @returns {Promise.<function(RenderItemArgs): Item>}
+     */
+
+  }, {
+    key: '_getRenderItemFn',
+    value: function _getRenderItemFn() {
       // user provided function
-      if (_.isFunction(renderItem) && renderItem !== Fn.noop) {
-        return Promise.resolve(renderItem);
+      var renderItemFn = this.props.renderItem;
+      if (_.isFunction(renderItemFn) && renderItemFn !== Fn.noop) {
+        return Promise.resolve(renderItemFn.bind(null));
       }
 
       // default
-      return Promise.resolve(this._renderItem);
+      return Promise.resolve(this._renderItemFn.bind(null));
     }
+
+    /**
+     * @param {RenderItemArgs} args
+     * @returns {Item}
+     */
+
   }, {
-    key: '_renderItem',
-    value: function _renderItem(data) {
+    key: '_renderItemFn',
+    value: function _renderItemFn(args) {
+      var data = args.data;
       var value = _.isObject(data) && this.props.selectedTextAttr ? data[this.props.selectedTextAttr] : data;
+
       return {
         value: value,
         label: _react2.default.createElement(
@@ -2120,11 +2251,22 @@ var AutoComplete = function (_React$Component) {
         )
       };
     }
+
+    /**
+     * @returns {boolean}
+     */
+
   }, {
     key: '_shouldLoadNextPage',
     value: function _shouldLoadNextPage() {
       return this.props.pagingEnabled && !this.state.dataLoadInProgress && !this._endOfPagedList;
     }
+
+    /**
+     * @param {number} itemIndex
+     * @returns {boolean}
+     */
+
   }, {
     key: '_shouldLoadNextPageAtItemIndex',
     value: function _shouldLoadNextPageAtItemIndex(itemIndex) {
@@ -2241,6 +2383,18 @@ AutoComplete.defaultProps = {
    */
   hideDropdownOnWindowResize: true,
   /**
+   * Set to true to display a message when no items match the search text.
+   * @default true
+   */
+  noMatchItemEnabled: true,
+  /**
+   * Callback for custom rendering of the message when no items match the search text. The callback receives an object
+   * with a "searchText" property. This function must return a JSX.
+   * If a callback is not provided, the default JSX used is <span>No results match '{searchText}'></span>
+   * @default noop
+   */
+  renderNoMatchItem: Fn.noop,
+  /**
    * Callback after the plugin is initialized and ready.
    * @default noop
    */
@@ -2264,9 +2418,9 @@ AutoComplete.defaultProps = {
   loadingComplete: Fn.noop,
   /**
    * Callback for custom rendering a list item. This is called for each item in the dropdown.
-   * This must return an object literal with "value" and "label" properties where
-   * "label" is the template for display and "value" is the text for the textbox.
-   * If the object has an "id" property, it will be used as the "key" when rendering the dropdown list.
+   * This must return an object with "value" and "label" properties where "label" is the JSX
+   * for display and "value" is the text for the textbox. If the object has an "id" property,
+   * it will be used as the "key" when rendering the dropdown list.
    * @default noop
    */
   renderItem: Fn.noop,
@@ -2309,6 +2463,8 @@ AutoComplete.propTypes = {
   }),
   autoHideDropdown: _propTypes2.default.bool,
   hideDropdownOnWindowResize: _propTypes2.default.bool,
+  noMatchItemEnabled: _propTypes2.default.bool.isRequired,
+  renderNoMatchItem: _propTypes2.default.func,
   ready: _propTypes2.default.func,
   loading: _propTypes2.default.func,
   data: _propTypes2.default.func.isRequired,
@@ -2344,6 +2500,16 @@ var AutoCompleteList = function (_Component) {
     value: function componentWillUnmount() {
       this._unsubscribeDOMEvents();
     }
+
+    /**
+     * @param {Object} nextProps
+     */
+
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this._setNoMatchItemIfEmpty(nextProps);
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -2365,6 +2531,11 @@ var AutoCompleteList = function (_Component) {
         this._renderListItems()
       );
     }
+
+    /**
+     * @param {itemIndex} number
+     */
+
   }, {
     key: 'scrollToItem',
     value: function scrollToItem(itemIndex) {
@@ -2385,15 +2556,37 @@ var AutoCompleteList = function (_Component) {
         this._elementUL.scrollTop = li.offsetTop;
       }
     }
+
+    /**
+     * @returns {JSX.Element}
+     */
+
   }, {
     key: '_renderListItems',
     value: function _renderListItems() {
+      if (!_.isEmpty(this.props.items)) {
+        return this._createDataItems();
+      }
+
+      if (this.props.noMatchItemEnabled) {
+        return this._createNoMatchItem();
+      }
+
+      return null;
+    }
+
+    /**
+     * @returns {JSX.Element}
+     */
+
+  }, {
+    key: '_createDataItems',
+    value: function _createDataItems() {
       var _this10 = this;
 
       var selectedCssClass = this._getSelectedCssClass();
 
       return this.props.items.map(function (item, index) {
-
         var classNames = (0, _classnames3.default)('auto-complete-item', _defineProperty({}, selectedCssClass, index === _this10.props.selectedIndex));
 
         return _react2.default.createElement(
@@ -2409,6 +2602,79 @@ var AutoCompleteList = function (_Component) {
         );
       });
     }
+
+    /**
+     * @returns {JSX.Element}
+     */
+
+  }, {
+    key: '_createNoMatchItem',
+    value: function _createNoMatchItem() {
+      return _react2.default.createElement(
+        'li',
+        { className: 'auto-complete-item auto-complete-no-match' },
+        this.state.noMatchItem
+      );
+    }
+
+    /**
+     * @param {Object} nextProps
+     */
+
+  }, {
+    key: '_setNoMatchItemIfEmpty',
+    value: function _setNoMatchItemIfEmpty(nextProps) {
+      var _this11 = this;
+
+      if (!_.isEmpty(nextProps.items) || !nextProps.noMatchItemEnabled) {
+        return;
+      }
+
+      this._getRenderNoMatchItemFn().then(function (renderItemFn) {
+        _this11.setState({
+          noMatchItem: renderItemFn({ searchText: _this11.props.searchText })
+        });
+      });
+    }
+
+    /**
+     * @returns {Promise}
+     */
+
+  }, {
+    key: '_getRenderNoMatchItemFn',
+    value: function _getRenderNoMatchItemFn() {
+      // user provided function
+      var renderNoMatchItem = this.props.renderNoMatchItem;
+      if (_.isFunction(renderNoMatchItem) && renderNoMatchItem !== Fn.noop) {
+        return Promise.resolve(renderNoMatchItem.bind(null));
+      }
+
+      // default
+      return Promise.resolve(this._renderNoMatchItem.bind(null));
+    }
+
+    /**
+     * @param {RenderNoMatchItemArgs} args
+     * @returns {JSX.Element}
+     */
+
+  }, {
+    key: '_renderNoMatchItem',
+    value: function _renderNoMatchItem(args) {
+      return _react2.default.createElement(
+        'span',
+        null,
+        'No results match \'',
+        args.searchText,
+        '\''
+      );
+    }
+
+    /**
+     * @returns {string}
+     */
+
   }, {
     key: '_getSelectedCssClass',
     value: function _getSelectedCssClass() {
@@ -2439,20 +2705,27 @@ AutoCompleteList.propTypes = {
     value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.any]),
     label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.any])
   })).isRequired,
+  searchText: _propTypes2.default.string,
   selectedIndex: _propTypes2.default.number.isRequired,
   dropdownHeight: _propTypes2.default.string,
+  noMatchItemEnabled: _propTypes2.default.bool.isRequired,
+  renderNoMatchItem: _propTypes2.default.func,
   getSelectedCssClass: _propTypes2.default.func.isRequired,
   onItemClick: _propTypes2.default.func.isRequired,
   onScroll: _propTypes2.default.func.isRequired
 };
 
 function HelperService() {
-  var _this11 = this;
+  var _this12 = this;
 
   var components = [];
   var instanceCount = 0;
   var activeInstanceId = 0;
 
+  /**
+   * @param {AutoComplete} component
+   * @returns {number}
+   */
   this.registerComponent = function (component) {
     if (component) {
       components.push(component);
@@ -2462,9 +2735,12 @@ function HelperService() {
     return -1;
   };
 
+  /**
+   * @param {number} instanceId
+   */
   this.setActiveInstanceId = function (instanceId) {
     activeInstanceId = instanceId;
-    _this11.hideAllInactive();
+    _this12.hideAllInactive();
   };
 
   this.hideAllInactive = function () {
@@ -2503,6 +2779,38 @@ var KEYCODE = {
 function ignoreKeyCode(keyCode) {
   return [KEYCODE.TAB, KEYCODE.ALT, KEYCODE.CTRL, KEYCODE.LEFTARROW, KEYCODE.RIGHTARROW, KEYCODE.MAC_COMMAND_LEFT, KEYCODE.MAC_COMMAND_RIGHT].indexOf(keyCode) !== -1;
 }
+
+/**
+ * @typedef {Object} Item
+ * @property {string} value
+ * @property {Object} label
+ * @property {string} id
+ */
+
+/**
+ * @typedef {Object} RenderItemArgs
+ * @property {Object} data
+ * @property {number} index
+ * @property {string} searchText
+ */
+
+/**
+ * @typedef {Object} RenderNoMatchItemArgs
+ * @property {string} searchText
+ */
+
+/**
+ * @typedef {Object} PagingArgs
+ * @property {number} pageIndex
+ * @property {number} pageSize
+ */
+
+/**
+ * @typedef {Object} QueryArgs
+ * @property {string} searchText
+ * @property {PagingArgs} paging
+ * @property {number} queryId
+ */
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ }),
@@ -23105,7 +23413,11 @@ __webpack_require__(8);
 
 var _Helper = __webpack_require__(9);
 
+var helper = _interopRequireWildcard(_Helper);
+
 var _MockData = __webpack_require__(13);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23125,6 +23437,7 @@ var CustomList = function (_React$Component) {
 
     _this.state = {};
     _this._itemSelected = _this._itemSelected.bind(_this);
+    _this._renderItem = _this._renderItem.bind(_this);
     return _this;
   }
 
@@ -23147,6 +23460,7 @@ var CustomList = function (_React$Component) {
             {
               containerCssClass: 'color-codes',
               selectedTextAttr: 'name',
+              maxItemsToRender: 10,
               data: this._getData,
               renderItem: this._renderItem,
               itemSelected: this._itemSelected
@@ -23172,7 +23486,7 @@ var CustomList = function (_React$Component) {
             )
           )
         ),
-        (0, _Helper.getFormattedCode)(this._getCode)
+        helper.getFormattedCode(this._getCode)
       );
     }
   }, {
@@ -23181,14 +23495,16 @@ var CustomList = function (_React$Component) {
       searchText = searchText.toUpperCase();
 
       return _MockData.COLORS.filter(function (x) {
-        return x.name.startsWith(searchText);
+        return x.name.includes(searchText);
       });
     }
   }, {
     key: '_renderItem',
-    value: function _renderItem(item, index) {
+    value: function _renderItem(args) {
+      var data = args.data;
+
       return {
-        value: item.name,
+        value: data.name,
         label: _react2.default.createElement(
           'table',
           { className: 'auto-complete' },
@@ -23198,16 +23514,12 @@ var CustomList = function (_React$Component) {
             _react2.default.createElement(
               'tr',
               null,
-              _react2.default.createElement(
-                'td',
-                { style: { width: '60%' } },
-                item.name
-              ),
-              _react2.default.createElement('td', { style: { width: '10%', backgroundColor: item.code } }),
+              _react2.default.createElement('td', { style: { width: '60%' }, dangerouslySetInnerHTML: helper.highlight(data.name, args.searchText) }),
+              _react2.default.createElement('td', { style: { width: '10%', backgroundColor: data.code } }),
               _react2.default.createElement(
                 'td',
                 { style: { width: '30%', paddingLeft: '10px' } },
-                item.code
+                data.code
               )
             )
           )
@@ -23222,7 +23534,7 @@ var CustomList = function (_React$Component) {
   }, {
     key: '_getCode',
     value: function _getCode() {
-      return 'import AutoComplete from \'@vickram/react-auto-complete\';\nimport { COLORS } from \'examples/MockData\';\n\nclass App extends React.Component {\n\n  render() {\n    return (\n      <AutoComplete\n        containerCssClass="color-codes"\n        selectedTextAttr="name"\n        data={this.getData}\n        renderItem={this.renderItem}\n        itemSelected={this.itemSelected} >\n          <input type="text"\n            placeholder="Color Name. Try \'r\' or \'b\'" />\n      </AutoComplete>\n    );\n  }\n  \n  getData(searchText) {\n    searchText = searchText.toUpperCase();\n\n    return COLORS.filter(x => x.name.startsWith(searchText));\n  }\n\n  renderItem(item, index) {\n    return (\n    {\n      value: item.name,\n      label: <table className=\'auto-complete\'>\n        <tbody>\n          <tr>\n            <td style={{ width: \'60%\' }}>{item.name}</td>\n            <td style={{ width: \'30%\' }}>{item.code}</td>\n            <td style={{ width: \'10%\', backgroundColor: item.code }}></td>\n          </tr>\n        </tbody>\n      </table>\n    }\n    );\n  }\n\n  itemSelected(e) {\n    this.setState({ selectedColor: e.item });\n  }\n}';
+      return 'import AutoComplete from \'@vickram/react-auto-complete\';\nimport { highlight } from \'Helper\';\nimport { COLORS } from \'examples/MockData\';\n\nclass App extends React.Component {\n\n  render() {\n    return (\n      <AutoComplete\n        containerCssClass="color-codes"\n        selectedTextAttr="name"\n        data={this.getData}\n        renderItem={this.renderItem}\n        itemSelected={this.itemSelected} >\n          <input type="text"\n            placeholder="Color Name. Try \'r\' or \'b\'" />\n      </AutoComplete>\n    );\n  }\n  \n  getData(searchText) {\n    searchText = searchText.toUpperCase();\n\n    return COLORS.filter(x => x.name.startsWith(searchText));\n  }\n\n  renderItem(args) {\n    const data = args.data;\n\n    return (\n    {\n      value: data.name,\n      label: <table className=\'auto-complete\'>\n        <tbody>\n          <tr>\n            <td style={{ width: \'60%\' }} dangerouslySetInnerHTML={highlight(data.name, args.searchText)}></td>\n            <td style={{ width: \'30%\' }}>{data.code}</td>\n            <td style={{ width: \'10%\', backgroundColor: data.code }}></td>\n          </tr>\n        </tbody>\n      </table>\n    }\n    );\n  }\n\n  itemSelected(e) {\n    this.setState({ selectedColor: e.item });\n  }\n}';
     }
   }]);
 
@@ -23734,20 +24046,22 @@ var ScrollableList = function (_React$Component) {
     }
   }, {
     key: '_renderItem',
-    value: function _renderItem(item, index) {
+    value: function _renderItem(args) {
+      var data = args.data;
+
       return {
-        value: item.name,
+        value: data.name,
         label: _react2.default.createElement(
           'p',
           { className: 'auto-complete' },
-          item.name
+          data.name
         )
       };
     }
   }, {
     key: '_getCode',
     value: function _getCode() {
-      return 'import AutoComplete from \'@vickram/react-auto-complete\';\nimport axios from \'axios\';\n\nclass App extends React.Component {\n\n  render() {\n    return (\n      <AutoComplete\n        dropdownWidth={500}\n        dropdownHeight={200}\n        data={this.getData}\n        renderItem={this.renderItem}>\n          <input type="text"\n            placeholder="Airport Name. Try \'p\' or \'c\'" />\n      </AutoComplete>\n    );\n  }\n  \n  getData(searchText, pagingParams) {\n    searchText = searchText.toUpperCase();\n\n    return axios\n      .get(\'data-files/airports.json\')\n      .then(function (response) {\n\n        if (!response || _.isEmpty(response.data)) {\n          return [];\n        }\n\n        return response.data.filter(airport =>\n          airport.iata === searchText || airport.name.startsWith(searchText)\n        );\n      });\n  }\n\n  renderItem(item, index) {\n    return (\n      {\n        value: item.name,\n        label: <p className=\'auto-complete\'>{item.name}</p>\n      }\n    );\n  }\n}';
+      return 'import AutoComplete from \'@vickram/react-auto-complete\';\nimport axios from \'axios\';\n\nclass App extends React.Component {\n\n  render() {\n    return (\n      <AutoComplete\n        dropdownWidth={500}\n        dropdownHeight={200}\n        data={this.getData}\n        renderItem={this.renderItem}>\n          <input type="text"\n            placeholder="Airport Name. Try \'p\' or \'c\'" />\n      </AutoComplete>\n    );\n  }\n  \n  getData(searchText, pagingParams) {\n    searchText = searchText.toUpperCase();\n\n    return axios\n      .get(\'data-files/airports.json\')\n      .then(function (response) {\n\n        if (!response || _.isEmpty(response.data)) {\n          return [];\n        }\n\n        return response.data.filter(airport =>\n          airport.iata === searchText || airport.name.startsWith(searchText)\n        );\n      });\n  }\n\n  renderItem(args) {\n    const data = args.data;\n\n    return (\n      {\n        value: data.name,\n        label: <p className=\'auto-complete\'>{data.name}</p>\n      }\n    );\n  }\n}';
     }
   }]);
 
@@ -24104,6 +24418,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.getFormattedCode = getFormattedCode;
+exports.highlight = highlight;
 
 var _react = __webpack_require__(1);
 
@@ -24134,6 +24449,33 @@ function getFormattedCode(getCode) {
             )
         )
     );
+}
+
+/**
+ * Highlights text that matches matchItem
+ * Adapted from AngularUI Bootstrap Typeahead
+ * See https://github.com/angular-ui/bootstrap/blob/master/src/typeahead/typeahead.js#L669
+ */
+function highlight(matchItem, query) {
+    function escapeRegexp(queryToEscape) {
+        // Regex: capture the whole query string and replace it with the string that will be used to match
+        // the results, for example if the capture is "a" the result will be \a
+        return ('' + queryToEscape).replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+    }
+
+    //https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+    function createMarkup(html) {
+        return { __html: html };
+    };
+
+    // Replaces the capture string with a the same string inside of a "<span>" tag
+    if (query && matchItem) {
+        var wrapped = ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<span class="search-text-highlight">$&</span>');
+
+        return createMarkup(wrapped);
+    }
+
+    return createMarkup(matchItem);
 }
 
 /***/ })

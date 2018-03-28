@@ -45,6 +45,11 @@ div.auto-complete-container ul.auto-complete-results {
         color: White;
     }
 
+    div.auto-complete-container ul.auto-complete-results li.auto-complete-item.auto-complete-no-match {
+        background-color: #efefef;
+        color: Black;
+        white-space: initial;
+    }
 
 div.auto-complete-container table.auto-complete {
     width: 100%;
@@ -1172,13 +1177,18 @@ div.config-options>ul>li a {
 }
 
 div.color-codes ul.auto-complete-results li.auto-complete-item {
-  background-color: white;
+  font-weight: normal;
 }
 
-div.color-codes ul.auto-complete-results li.auto-complete-item:hover, div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
-  /*	background-color: #6699FF;*/
-  background-color: black;
+div.color-codes ul.auto-complete-results li.auto-complete-item:hover,
+div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
+  background-color: Black;
   color: White;
+}
+
+div.color-codes ul.auto-complete-results li.auto-complete-item .search-text-highlight {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 @keyframes spinner {

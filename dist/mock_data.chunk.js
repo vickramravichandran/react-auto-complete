@@ -496,11 +496,13 @@ var COLORS = [{
     name: x.name.toUpperCase(),
     code: x.code.toUpperCase()
   };
-}).sort(function (l, r) {
-  return l.name - r.name;
 });
 
-var BREAKFAST = ["BAGELS",
+exports.COLORS = COLORS = _.sortBy(COLORS, function (x) {
+  return x.name;
+});
+
+var BREAKFAST = ["APPLE PIE", "BAGELS",
 //"BISCUITS AND GRAVY",
 //"Cold Pizza",
 "CEREAL", "CROISSANT", "DOUGHNUTS", "EGG SANDWICH",

@@ -1,5 +1,1833 @@
 [
   {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "itemOffset"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 392,
+        "column": 2
+      },
+      "end": {
+        "line": 394,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 395,
+          "column": 2
+        },
+        "end": {
+          "line": 402,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "itemOffset",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getItemIndexFromOffset",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getItemIndexFromOffset",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getItemIndexFromOffset"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "itemIndex"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 404,
+        "column": 2
+      },
+      "end": {
+        "line": 406,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 407,
+          "column": 2
+        },
+        "end": {
+          "line": 414,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "itemIndex",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_scrollToItem",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_scrollToItem",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_scrollToItem"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "itemIndex"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 431,
+        "column": 2
+      },
+      "end": {
+        "line": 434,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 435,
+          "column": 2
+        },
+        "end": {
+          "line": 437,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "itemIndex",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getSelectedCssClass",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getSelectedCssClass",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getSelectedCssClass"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 439,
+        "column": 2
+      },
+      "end": {
+        "line": 441,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 442,
+          "column": 2
+        },
+        "end": {
+          "line": 451,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "searchText",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_tryQuery",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_tryQuery",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_tryQuery"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "delay"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 453,
+        "column": 2
+      },
+      "end": {
+        "line": 456,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 457,
+          "column": 2
+        },
+        "end": {
+          "line": 469,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "searchText",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      },
+      {
+        "title": "param",
+        "name": "delay",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_waitAndQuery",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_waitAndQuery",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_waitAndQuery"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "pageIndex"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 481,
+        "column": 2
+      },
+      "end": {
+        "line": 484,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 485,
+          "column": 2
+        },
+        "end": {
+          "line": 499,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "searchText",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      },
+      {
+        "title": "param",
+        "name": "pageIndex",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_query",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_query",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_query"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "FunctionType",
+          "params": [
+            {
+              "type": "NameExpression",
+              "name": "Array"
+            }
+          ],
+          "result": {
+            "type": "NameExpression",
+            "name": "Promise"
+          }
+        },
+        "name": "renderListFn"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 501,
+        "column": 2
+      },
+      "end": {
+        "line": 504,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 505,
+          "column": 2
+        },
+        "end": {
+          "line": 545,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      },
+      {
+        "title": "param",
+        "name": "renderListFn",
+        "lineNumber": 2,
+        "type": {
+          "type": "FunctionType",
+          "params": [
+            {
+              "type": "NameExpression",
+              "name": "Array"
+            }
+          ],
+          "result": {
+            "type": "NameExpression",
+            "name": "Promise"
+          }
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_queryAndRender",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_queryAndRender",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_queryAndRender"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "FunctionType",
+          "params": [],
+          "result": null
+        },
+        "name": "callback"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "callbackArgs"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 547,
+        "column": 2
+      },
+      "end": {
+        "line": 550,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 551,
+          "column": 2
+        },
+        "end": {
+          "line": 559,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "callback",
+        "lineNumber": 1,
+        "type": {
+          "type": "FunctionType",
+          "params": [],
+          "result": null
+        }
+      },
+      {
+        "title": "param",
+        "name": "callbackArgs",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_safeCallback",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_safeCallback",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_safeCallback"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        },
+        "name": "data"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 654,
+        "column": 2
+      },
+      "end": {
+        "line": 658,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 659,
+          "column": 2
+        },
+        "end": {
+          "line": 677,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      },
+      {
+        "title": "param",
+        "name": "data",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_shouldHideDropdown",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_shouldHideDropdown",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_shouldHideDropdown"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 679,
+        "column": 2
+      },
+      "end": {
+        "line": 682,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 683,
+          "column": 2
+        },
+        "end": {
+          "line": 685,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_didQueryIdChange",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_didQueryIdChange",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_didQueryIdChange"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        },
+        "name": "data"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 687,
+        "column": 2
+      },
+      "end": {
+        "line": 691,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 692,
+          "column": 2
+        },
+        "end": {
+          "line": 702,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      },
+      {
+        "title": "param",
+        "name": "data",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_renderList",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_renderList",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_renderList"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        },
+        "name": "data"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 704,
+        "column": 2
+      },
+      "end": {
+        "line": 708,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 709,
+          "column": 2
+        },
+        "end": {
+          "line": 725,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      },
+      {
+        "title": "param",
+        "name": "data",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_renderPagedList",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_renderPagedList",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_renderPagedList"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "FunctionType",
+          "params": [
+            {
+              "type": "NameExpression",
+              "name": "RenderItemArgs"
+            }
+          ],
+          "result": {
+            "type": "NameExpression",
+            "name": "Item"
+          }
+        },
+        "name": "renderItemFn"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        },
+        "name": "data"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        },
+        "name": "queryArgs"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 4,
+        "type": {
+          "type": "TypeApplication",
+          "expression": {
+            "type": "NameExpression",
+            "name": "Array"
+          },
+          "applications": [
+            {
+              "type": "NameExpression",
+              "name": "Item"
+            }
+          ]
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 727,
+        "column": 2
+      },
+      "end": {
+        "line": 732,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 733,
+          "column": 2
+        },
+        "end": {
+          "line": 766,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "renderItemFn",
+        "lineNumber": 1,
+        "type": {
+          "type": "FunctionType",
+          "params": [
+            {
+              "type": "NameExpression",
+              "name": "RenderItemArgs"
+            }
+          ],
+          "result": {
+            "type": "NameExpression",
+            "name": "Item"
+          }
+        }
+      },
+      {
+        "title": "param",
+        "name": "data",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Array"
+        }
+      },
+      {
+        "title": "param",
+        "name": "queryArgs",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "TypeApplication",
+          "expression": {
+            "type": "NameExpression",
+            "name": "Array"
+          },
+          "applications": [
+            {
+              "type": "NameExpression",
+              "name": "Item"
+            }
+          ]
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getRenderItems",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getRenderItems",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getRenderItems"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "TypeApplication",
+          "expression": {
+            "type": "NameExpression",
+            "name": "Promise"
+          },
+          "applications": [
+            {
+              "type": "FunctionType",
+              "params": [
+                {
+                  "type": "NameExpression",
+                  "name": "RenderItemArgs"
+                }
+              ],
+              "result": {
+                "type": "NameExpression",
+                "name": "Item"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 768,
+        "column": 2
+      },
+      "end": {
+        "line": 770,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 771,
+          "column": 2
+        },
+        "end": {
+          "line": 780,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "TypeApplication",
+          "expression": {
+            "type": "NameExpression",
+            "name": "Promise"
+          },
+          "applications": [
+            {
+              "type": "FunctionType",
+              "params": [
+                {
+                  "type": "NameExpression",
+                  "name": "RenderItemArgs"
+                }
+              ],
+              "result": {
+                "type": "NameExpression",
+                "name": "Item"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getRenderItemFn",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getRenderItemFn",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getRenderItemFn"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "RenderItemArgs"
+        },
+        "name": "args"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Item"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 782,
+        "column": 2
+      },
+      "end": {
+        "line": 785,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 786,
+          "column": 2
+        },
+        "end": {
+          "line": 796,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "args",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "RenderItemArgs"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "Item"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_renderItemFn",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_renderItemFn",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_renderItemFn"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 798,
+        "column": 2
+      },
+      "end": {
+        "line": 800,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 801,
+          "column": 2
+        },
+        "end": {
+          "line": 805,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_shouldLoadNextPage",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_shouldLoadNextPage",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_shouldLoadNextPage"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "itemIndex"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 807,
+        "column": 2
+      },
+      "end": {
+        "line": 810,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 811,
+          "column": 2
+        },
+        "end": {
+          "line": 818,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "itemIndex",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "boolean"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_shouldLoadNextPageAtItemIndex",
+    "kind": "function",
+    "memberof": "AutoComplete",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_shouldLoadNextPageAtItemIndex",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_shouldLoadNextPageAtItemIndex"
+  },
+  {
     "description": {
       "type": "root",
       "children": [
@@ -61,22 +1889,22 @@
     ],
     "loc": {
       "start": {
-        "line": 719,
+        "line": 829,
         "column": 2
       },
       "end": {
-        "line": 722,
+        "line": 832,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 723,
+          "line": 833,
           "column": 2
         },
         "end": {
-          "line": 723,
+          "line": 833,
           "column": 25
         }
       },
@@ -170,22 +1998,22 @@
     ],
     "loc": {
       "start": {
-        "line": 724,
+        "line": 834,
         "column": 2
       },
       "end": {
-        "line": 727,
+        "line": 837,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 728,
+          "line": 838,
           "column": 2
         },
         "end": {
-          "line": 728,
+          "line": 838,
           "column": 49
         }
       },
@@ -279,22 +2107,22 @@
     ],
     "loc": {
       "start": {
-        "line": 729,
+        "line": 839,
         "column": 2
       },
       "end": {
-        "line": 732,
+        "line": 842,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 733,
+          "line": 843,
           "column": 2
         },
         "end": {
-          "line": 733,
+          "line": 843,
           "column": 17
         }
       },
@@ -388,22 +2216,22 @@
     ],
     "loc": {
       "start": {
-        "line": 734,
+        "line": 844,
         "column": 2
       },
       "end": {
-        "line": 737,
+        "line": 847,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 738,
+          "line": 848,
           "column": 2
         },
         "end": {
-          "line": 738,
+          "line": 848,
           "column": 22
         }
       },
@@ -497,22 +2325,22 @@
     ],
     "loc": {
       "start": {
-        "line": 739,
+        "line": 849,
         "column": 2
       },
       "end": {
-        "line": 742,
+        "line": 852,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 743,
+          "line": 853,
           "column": 2
         },
         "end": {
-          "line": 743,
+          "line": 853,
           "column": 24
         }
       },
@@ -606,22 +2434,22 @@
     ],
     "loc": {
       "start": {
-        "line": 744,
+        "line": 854,
         "column": 2
       },
       "end": {
-        "line": 747,
+        "line": 857,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 748,
+          "line": 858,
           "column": 2
         },
         "end": {
-          "line": 748,
+          "line": 858,
           "column": 21
         }
       },
@@ -715,22 +2543,22 @@
     ],
     "loc": {
       "start": {
-        "line": 749,
+        "line": 859,
         "column": 2
       },
       "end": {
-        "line": 752,
+        "line": 862,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 753,
+          "line": 863,
           "column": 2
         },
         "end": {
-          "line": 753,
+          "line": 863,
           "column": 22
         }
       },
@@ -824,22 +2652,22 @@
     ],
     "loc": {
       "start": {
-        "line": 754,
+        "line": 864,
         "column": 2
       },
       "end": {
-        "line": 757,
+        "line": 867,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 758,
+          "line": 868,
           "column": 2
         },
         "end": {
-          "line": 758,
+          "line": 868,
           "column": 17
         }
       },
@@ -937,22 +2765,22 @@
     ],
     "loc": {
       "start": {
-        "line": 759,
+        "line": 869,
         "column": 2
       },
       "end": {
-        "line": 763,
+        "line": 873,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 764,
+          "line": 874,
           "column": 2
         },
         "end": {
-          "line": 764,
+          "line": 874,
           "column": 24
         }
       },
@@ -1046,22 +2874,22 @@
     ],
     "loc": {
       "start": {
-        "line": 765,
+        "line": 875,
         "column": 2
       },
       "end": {
-        "line": 768,
+        "line": 878,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 769,
+          "line": 879,
           "column": 2
         },
         "end": {
-          "line": 769,
+          "line": 879,
           "column": 22
         }
       },
@@ -1155,22 +2983,22 @@
     ],
     "loc": {
       "start": {
-        "line": 770,
+        "line": 880,
         "column": 2
       },
       "end": {
-        "line": 773,
+        "line": 883,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 774,
+          "line": 884,
           "column": 2
         },
         "end": {
-          "line": 774,
+          "line": 884,
           "column": 13
         }
       },
@@ -1270,22 +3098,22 @@
     ],
     "loc": {
       "start": {
-        "line": 775,
+        "line": 885,
         "column": 2
       },
       "end": {
-        "line": 780,
+        "line": 890,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 781,
+          "line": 891,
           "column": 2
         },
         "end": {
-          "line": 781,
+          "line": 891,
           "column": 37
         }
       },
@@ -1439,22 +3267,22 @@
     ],
     "loc": {
       "start": {
-        "line": 782,
+        "line": 892,
         "column": 2
       },
       "end": {
-        "line": 787,
+        "line": 897,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 788,
+          "line": 898,
           "column": 2
         },
         "end": {
-          "line": 788,
+          "line": 898,
           "column": 27
         }
       },
@@ -1548,22 +3376,22 @@
     ],
     "loc": {
       "start": {
-        "line": 789,
+        "line": 899,
         "column": 2
       },
       "end": {
-        "line": 792,
+        "line": 902,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 793,
+          "line": 903,
           "column": 2
         },
         "end": {
-          "line": 793,
+          "line": 903,
           "column": 21
         }
       },
@@ -1661,22 +3489,22 @@
     ],
     "loc": {
       "start": {
-        "line": 794,
+        "line": 904,
         "column": 2
       },
       "end": {
-        "line": 798,
+        "line": 908,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 799,
+          "line": 909,
           "column": 2
         },
         "end": {
-          "line": 799,
+          "line": 909,
           "column": 24
         }
       },
@@ -1776,22 +3604,22 @@
     ],
     "loc": {
       "start": {
-        "line": 800,
+        "line": 910,
         "column": 2
       },
       "end": {
-        "line": 805,
+        "line": 915,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 806,
+          "line": 916,
           "column": 2
         },
         "end": {
-          "line": 806,
+          "line": 916,
           "column": 34
         }
       },
@@ -1822,6 +3650,281 @@
       }
     ],
     "namespace": ".hideDropdownOnWindowResize"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Set to true to display a message when no items match the search text.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 70,
+                  "offset": 69
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 70,
+              "offset": 69
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 70,
+          "offset": 69
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "true",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 917,
+        "column": 2
+      },
+      "end": {
+        "line": 920,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 921,
+          "column": 2
+        },
+        "end": {
+          "line": 921,
+          "column": 26
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "noMatchItemEnabled",
+    "memberof": "AutoComplete.defaultProps",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "noMatchItemEnabled",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".noMatchItemEnabled"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback for custom rendering of the message when no items match the search text. The callback receives an object\nwith a \"searchText\" property. This function must return a JSX.\nIf a callback is not provided, the default JSX used is ",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 3,
+                  "column": 56,
+                  "offset": 232
+                },
+                "indent": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "type": "html",
+              "value": "<span>",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 56,
+                  "offset": 232
+                },
+                "end": {
+                  "line": 3,
+                  "column": 62,
+                  "offset": 238
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "text",
+              "value": "No results match '{searchText}'>",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 62,
+                  "offset": 238
+                },
+                "end": {
+                  "line": 3,
+                  "column": 94,
+                  "offset": 270
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "html",
+              "value": "</span>",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 94,
+                  "offset": 270
+                },
+                "end": {
+                  "line": 3,
+                  "column": 101,
+                  "offset": 277
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 101,
+              "offset": 277
+            },
+            "indent": [
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 101,
+          "offset": 277
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "noop",
+        "lineNumber": 4
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 922,
+        "column": 2
+      },
+      "end": {
+        "line": 927,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 928,
+          "column": 2
+        },
+        "end": {
+          "line": 928,
+          "column": 28
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "renderNoMatchItem",
+    "memberof": "AutoComplete.defaultProps",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "renderNoMatchItem",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".renderNoMatchItem"
   },
   {
     "description": {
@@ -1885,22 +3988,22 @@
     ],
     "loc": {
       "start": {
-        "line": 807,
+        "line": 929,
         "column": 2
       },
       "end": {
-        "line": 810,
+        "line": 932,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 811,
+          "line": 933,
           "column": 2
         },
         "end": {
-          "line": 811,
+          "line": 933,
           "column": 16
         }
       },
@@ -1994,22 +4097,22 @@
     ],
     "loc": {
       "start": {
-        "line": 812,
+        "line": 934,
         "column": 2
       },
       "end": {
-        "line": 815,
+        "line": 937,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 816,
+          "line": 938,
           "column": 2
         },
         "end": {
-          "line": 816,
+          "line": 938,
           "column": 18
         }
       },
@@ -2109,22 +4212,22 @@
     ],
     "loc": {
       "start": {
-        "line": 817,
+        "line": 939,
         "column": 2
       },
       "end": {
-        "line": 822,
+        "line": 944,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 823,
+          "line": 945,
           "column": 2
         },
         "end": {
-          "line": 823,
+          "line": 945,
           "column": 15
         }
       },
@@ -2218,22 +4321,22 @@
     ],
     "loc": {
       "start": {
-        "line": 824,
+        "line": 946,
         "column": 2
       },
       "end": {
-        "line": 827,
+        "line": 949,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 828,
+          "line": 950,
           "column": 2
         },
         "end": {
-          "line": 828,
+          "line": 950,
           "column": 26
         }
       },
@@ -2274,7 +4377,7 @@
           "children": [
             {
               "type": "text",
-              "value": "Callback for custom rendering a list item. This is called for each item in the dropdown.\nThis must return an object literal with \"value\" and \"label\" properties where\n\"label\" is the template for display and \"value\" is the text for the textbox.\nIf the object has an \"id\" property, it will be used as the \"key\" when rendering the dropdown list.",
+              "value": "Callback for custom rendering a list item. This is called for each item in the dropdown.\nThis must return an object with \"value\" and \"label\" properties where \"label\" is the JSX\nfor display and \"value\" is the text for the textbox. If the object has an \"id\" property,\nit will be used as the \"key\" when rendering the dropdown list.",
               "position": {
                 "start": {
                   "line": 1,
@@ -2283,8 +4386,8 @@
                 },
                 "end": {
                   "line": 4,
-                  "column": 99,
-                  "offset": 341
+                  "column": 63,
+                  "offset": 328
                 },
                 "indent": [
                   1,
@@ -2302,8 +4405,8 @@
             },
             "end": {
               "line": 4,
-              "column": 99,
-              "offset": 341
+              "column": 63,
+              "offset": 328
             },
             "indent": [
               1,
@@ -2321,8 +4424,8 @@
         },
         "end": {
           "line": 4,
-          "column": 99,
-          "offset": 341
+          "column": 63,
+          "offset": 328
         }
       }
     },
@@ -2335,22 +4438,22 @@
     ],
     "loc": {
       "start": {
-        "line": 829,
+        "line": 951,
         "column": 2
       },
       "end": {
-        "line": 835,
+        "line": 957,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 836,
+          "line": 958,
           "column": 2
         },
         "end": {
-          "line": 836,
+          "line": 958,
           "column": 21
         }
       },
@@ -2444,22 +4547,22 @@
     ],
     "loc": {
       "start": {
-        "line": 837,
+        "line": 959,
         "column": 2
       },
       "end": {
-        "line": 840,
+        "line": 962,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 841,
+          "line": 963,
           "column": 2
         },
         "end": {
-          "line": 841,
+          "line": 963,
           "column": 23
         }
       },
@@ -2553,22 +4656,22 @@
     ],
     "loc": {
       "start": {
-        "line": 842,
+        "line": 964,
         "column": 2
       },
       "end": {
-        "line": 845,
+        "line": 967,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 846,
+          "line": 968,
           "column": 2
         },
         "end": {
-          "line": 846,
+          "line": 968,
           "column": 24
         }
       },
@@ -2662,22 +4765,22 @@
     ],
     "loc": {
       "start": {
-        "line": 847,
+        "line": 969,
         "column": 2
       },
       "end": {
-        "line": 850,
+        "line": 972,
         "column": 5
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 851,
+          "line": 973,
           "column": 2
         },
         "end": {
-          "line": 851,
+          "line": 973,
           "column": 25
         }
       },
@@ -2708,5 +4811,1659 @@
       }
     ],
     "namespace": ".dropdownHidden"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "type",
+        "description": null,
+        "lineNumber": 0,
+        "type": {
+          "type": "NameExpression",
+          "name": "QueryArgs"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 486,
+        "column": 4
+      },
+      "end": {
+        "line": 486,
+        "column": 28
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 487,
+          "column": 4
+        },
+        "end": {
+          "line": 494,
+          "column": 6
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "type": {
+      "type": "NameExpression",
+      "name": "QueryArgs"
+    },
+    "name": "queryArgs",
+    "kind": "constant",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "queryArgs",
+        "kind": "constant"
+      }
+    ],
+    "namespace": "queryArgs"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "type",
+        "description": null,
+        "lineNumber": 0,
+        "type": {
+          "type": "NameExpression",
+          "name": "RenderItemArgs"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 743,
+        "column": 6
+      },
+      "end": {
+        "line": 743,
+        "column": 35
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 744,
+          "column": 6
+        },
+        "end": {
+          "line": 748,
+          "column": 8
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "type": {
+      "type": "NameExpression",
+      "name": "RenderItemArgs"
+    },
+    "name": "renderItemArgs",
+    "kind": "constant",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "renderItemArgs",
+        "kind": "constant"
+      }
+    ],
+    "namespace": "renderItemArgs"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "nextProps"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1027,
+        "column": 2
+      },
+      "end": {
+        "line": 1029,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1030,
+          "column": 2
+        },
+        "end": {
+          "line": 1032,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "nextProps",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "componentWillReceiveProps",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "componentWillReceiveProps",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#componentWillReceiveProps"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "itemIndex"
+        },
+        "name": "number"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1050,
+        "column": 2
+      },
+      "end": {
+        "line": 1052,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1053,
+          "column": 2
+        },
+        "end": {
+          "line": 1070,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "itemIndex",
+        "lineNumber": 1053
+      },
+      {
+        "title": "param",
+        "name": "number",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "itemIndex"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "scrollToItem",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "scrollToItem",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#scrollToItem"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1072,
+        "column": 2
+      },
+      "end": {
+        "line": 1074,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1075,
+          "column": 2
+        },
+        "end": {
+          "line": 1085,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_renderListItems",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_renderListItems",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_renderListItems"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1087,
+        "column": 2
+      },
+      "end": {
+        "line": 1089,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1090,
+          "column": 2
+        },
+        "end": {
+          "line": 1109,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_createDataItems",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_createDataItems",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_createDataItems"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1111,
+        "column": 2
+      },
+      "end": {
+        "line": 1113,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1114,
+          "column": 2
+        },
+        "end": {
+          "line": 1120,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_createNoMatchItem",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_createNoMatchItem",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_createNoMatchItem"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "nextProps"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1122,
+        "column": 2
+      },
+      "end": {
+        "line": 1124,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1125,
+          "column": 2
+        },
+        "end": {
+          "line": 1135,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "nextProps",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_setNoMatchItemIfEmpty",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_setNoMatchItemIfEmpty",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_setNoMatchItemIfEmpty"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1137,
+        "column": 2
+      },
+      "end": {
+        "line": 1139,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1140,
+          "column": 2
+        },
+        "end": {
+          "line": 1149,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "Promise"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getRenderNoMatchItemFn",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getRenderNoMatchItemFn",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getRenderNoMatchItemFn"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "RenderNoMatchItemArgs"
+        },
+        "name": "args"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1151,
+        "column": 2
+      },
+      "end": {
+        "line": 1154,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1155,
+          "column": 2
+        },
+        "end": {
+          "line": 1159,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "args",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "RenderNoMatchItemArgs"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "JSX.Element"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_renderNoMatchItem",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_renderNoMatchItem",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_renderNoMatchItem"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1161,
+        "column": 2
+      },
+      "end": {
+        "line": 1163,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1164,
+          "column": 2
+        },
+        "end": {
+          "line": 1171,
+          "column": 3
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "_getSelectedCssClass",
+    "kind": "function",
+    "memberof": "AutoCompleteList",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "_getSelectedCssClass",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#_getSelectedCssClass"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "AutoComplete"
+        },
+        "name": "component"
+      },
+      {
+        "title": "returns",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1202,
+        "column": 2
+      },
+      "end": {
+        "line": 1205,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1206,
+          "column": 2
+        },
+        "end": {
+          "line": 1213,
+          "column": 4
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "component",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "AutoComplete"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "registerComponent",
+    "kind": "function",
+    "memberof": "HelperService",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "registerComponent",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#registerComponent"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "instanceId"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1215,
+        "column": 2
+      },
+      "end": {
+        "line": 1217,
+        "column": 5
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1218,
+          "column": 2
+        },
+        "end": {
+          "line": 1221,
+          "column": 4
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "instanceId",
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "setActiveInstanceId",
+    "kind": "function",
+    "memberof": "HelperService",
+    "scope": "instance",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "setActiveInstanceId",
+        "kind": "function",
+        "scope": "instance"
+      }
+    ],
+    "namespace": "#setActiveInstanceId"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "typedef",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "Item"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "value"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "label"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "id"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1268,
+        "column": 0
+      },
+      "end": {
+        "line": 1273,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1256,
+          "column": 0
+        },
+        "end": {
+          "line": 1266,
+          "column": 1
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [
+      {
+        "title": "property",
+        "name": "value",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      },
+      {
+        "title": "property",
+        "name": "label",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      },
+      {
+        "title": "property",
+        "name": "id",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "kind": "typedef",
+    "name": "Item",
+    "type": {
+      "type": "NameExpression",
+      "name": "Object"
+    },
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "Item",
+        "kind": "typedef"
+      }
+    ],
+    "namespace": "Item"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "typedef",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "RenderItemArgs"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "data"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "index"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1275,
+        "column": 0
+      },
+      "end": {
+        "line": 1280,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1256,
+          "column": 0
+        },
+        "end": {
+          "line": 1266,
+          "column": 1
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [
+      {
+        "title": "property",
+        "name": "data",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      },
+      {
+        "title": "property",
+        "name": "index",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      },
+      {
+        "title": "property",
+        "name": "searchText",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "kind": "typedef",
+    "name": "RenderItemArgs",
+    "type": {
+      "type": "NameExpression",
+      "name": "Object"
+    },
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "RenderItemArgs",
+        "kind": "typedef"
+      }
+    ],
+    "namespace": "RenderItemArgs"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "typedef",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "RenderNoMatchItemArgs"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1282,
+        "column": 0
+      },
+      "end": {
+        "line": 1285,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1256,
+          "column": 0
+        },
+        "end": {
+          "line": 1266,
+          "column": 1
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [
+      {
+        "title": "property",
+        "name": "searchText",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      }
+    ],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "kind": "typedef",
+    "name": "RenderNoMatchItemArgs",
+    "type": {
+      "type": "NameExpression",
+      "name": "Object"
+    },
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "RenderNoMatchItemArgs",
+        "kind": "typedef"
+      }
+    ],
+    "namespace": "RenderNoMatchItemArgs"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "typedef",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "PagingArgs"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "pageIndex"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "pageSize"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1287,
+        "column": 0
+      },
+      "end": {
+        "line": 1291,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1256,
+          "column": 0
+        },
+        "end": {
+          "line": 1266,
+          "column": 1
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [
+      {
+        "title": "property",
+        "name": "pageIndex",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      },
+      {
+        "title": "property",
+        "name": "pageSize",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "kind": "typedef",
+    "name": "PagingArgs",
+    "type": {
+      "type": "NameExpression",
+      "name": "Object"
+    },
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "PagingArgs",
+        "kind": "typedef"
+      }
+    ],
+    "namespace": "PagingArgs"
+  },
+  {
+    "description": "",
+    "tags": [
+      {
+        "title": "typedef",
+        "description": null,
+        "lineNumber": 1,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        },
+        "name": "QueryArgs"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "searchText"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "PagingArgs"
+        },
+        "name": "paging"
+      },
+      {
+        "title": "property",
+        "description": null,
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        },
+        "name": "queryId"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1293,
+        "column": 0
+      },
+      "end": {
+        "line": 1298,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 1256,
+          "column": 0
+        },
+        "end": {
+          "line": 1266,
+          "column": 1
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\react-auto-complete\\node_modules\\@vickram\\react-auto-complete\\src\\AutoComplete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [
+      {
+        "title": "property",
+        "name": "searchText",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        }
+      },
+      {
+        "title": "property",
+        "name": "paging",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "PagingArgs"
+        }
+      },
+      {
+        "title": "property",
+        "name": "queryId",
+        "lineNumber": 4,
+        "type": {
+          "type": "NameExpression",
+          "name": "number"
+        }
+      }
+    ],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "kind": "typedef",
+    "name": "QueryArgs",
+    "type": {
+      "type": "NameExpression",
+      "name": "Object"
+    },
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "QueryArgs",
+        "kind": "typedef"
+      }
+    ],
+    "namespace": "QueryArgs"
   }
 ]
