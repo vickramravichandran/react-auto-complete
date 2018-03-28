@@ -110,6 +110,8 @@ module.exports = {
     ],
     alias: {
       src: paths.SRC
+      //'@vickram/react-auto-complete': path.resolve(paths.SRC, 'src'),
+      //'vickram/react-auto-complete/dist': path.resolve(paths.SRC, 'src')
     }
   }
 };

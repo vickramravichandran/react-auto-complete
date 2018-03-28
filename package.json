@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "docs": "documentation build node_modules/@vickram/react-auto-complete/src/AutoComplete.js -o dist/docs.json -f json",
-    "webpack": "npm run clean && npm run docs && webpack --config webpack.config.js"
+    "build": "npm run clean && npm run docs && webpack --config webpack.config.js"
   },
   "keywords": [
     "react",
@@ -26,7 +26,7 @@
     "url": "https://github.com/vickramravichandran/react-auto-complete/issues"
   },
   "devDependencies": {
-    "@vickram/react-auto-complete": "^1.0.1",
+    "@vickram/react-auto-complete": "^1.0.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",

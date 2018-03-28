@@ -1,7 +1,7 @@
 import React from 'react';
 import AutoComplete from '@vickram/react-auto-complete';
 import "@vickram/react-auto-complete/dist/AutoComplete.css";
-import { getFormattedCode } from 'Helper';
+import * as helper from 'Helper';
 import { COLORS } from 'examples/MockData';
 
 export default class CustomList extends React.Component {
@@ -10,6 +10,7 @@ export default class CustomList extends React.Component {
 
     this.state = {};
     this._itemSelected = this._itemSelected.bind(this);
+    this._renderItem = this._renderItem.bind(this);
   }
 
   render() {
@@ -20,6 +21,7 @@ export default class CustomList extends React.Component {
           <AutoComplete
             containerCssClass="color-codes"
             selectedTextAttr="name"
+            maxItemsToRender={10}
             data={this._getData}
             renderItem={this._renderItem}
             itemSelected={this._itemSelected}
@@ -39,7 +41,7 @@ export default class CustomList extends React.Component {
             </div>
           }
         </div>
-        {getFormattedCode(this._getCode)}
+        {helper.getFormattedCode(this._getCode)}
       </div>
     );
   }
@@ -47,19 +49,21 @@ export default class CustomList extends React.Component {
   _getData(searchText) {
     searchText = searchText.toUpperCase();
 
-    return COLORS.filter(x => x.name.startsWith(searchText));
+    return COLORS.filter(x => x.name.includes(searchText));
   }
 
-  _renderItem(item, index) {
+  _renderItem(args) {
+    const data = args.data;
+
     return (
       {
-        value: item.name,
+        value: data.name,
         label: <table className='auto-complete'>
           <tbody>
             <tr>
-              <td style={{ width: '60%' }}>{item.name}</td>
-              <td style={{ width: '10%', backgroundColor: item.code }}></td>
-              <td style={{ width: '30%', paddingLeft: '10px' }}>{item.code}</td>              
+              <td style={{ width: '60%' }} dangerouslySetInnerHTML={helper.highlight(data.name, args.searchText)}></td>
+              <td style={{ width: '10%', backgroundColor: data.code }}></td>
+              <td style={{ width: '30%', paddingLeft: '10px' }}>{data.code}</td>
             </tr>
           </tbody>
         </table>
@@ -73,6 +77,7 @@ export default class CustomList extends React.Component {
 
   _getCode() {
     return (`import AutoComplete from '@vickram/react-auto-complete';
+import { highlight } from 'Helper';
 import { COLORS } from 'examples/MockData';
 
 class App extends React.Component {
@@ -97,16 +102,18 @@ class App extends React.Component {
     return COLORS.filter(x => x.name.startsWith(searchText));
   }
 
-  renderItem(item, index) {
+  renderItem(args) {
+    const data = args.data;
+
     return (
     {
-      value: item.name,
+      value: data.name,
       label: <table className='auto-complete'>
         <tbody>
           <tr>
-            <td style={{ width: '60%' }}>{item.name}</td>
-            <td style={{ width: '30%' }}>{item.code}</td>
-            <td style={{ width: '10%', backgroundColor: item.code }}></td>
+            <td style={{ width: '60%' }} dangerouslySetInnerHTML={highlight(data.name, args.searchText)}></td>
+            <td style={{ width: '30%' }}>{data.code}</td>
+            <td style={{ width: '10%', backgroundColor: data.code }}></td>
           </tr>
         </tbody>
       </table>

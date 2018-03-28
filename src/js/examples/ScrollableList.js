@@ -62,11 +62,13 @@ export default class ScrollableList extends React.Component {
       });
   }
 
-  _renderItem(item, index) {
+  _renderItem(args) {
+    const data = args.data;
+
     return (
       {
-        value: item.name,
-        label: <p className='auto-complete'>{item.name}</p>
+        value: data.name,
+        label: <p className='auto-complete'>{data.name}</p>
       }
     );
   }
@@ -107,11 +109,13 @@ class App extends React.Component {
       });
   }
 
-  renderItem(item, index) {
+  renderItem(args) {
+    const data = args.data;
+
     return (
       {
-        value: item.name,
-        label: <p className='auto-complete'>{item.name}</p>
+        value: data.name,
+        label: <p className='auto-complete'>{data.name}</p>
       }
     );
   }

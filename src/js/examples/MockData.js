@@ -1,4 +1,4 @@
-const COLORS = [
+let COLORS = [
   {
     "name": "ANTIQUEWHITE",
     "code": "#faebd7"
@@ -444,9 +444,12 @@ const COLORS = [
     name: x.name.toUpperCase(),
     code: x.code.toUpperCase()
   };
-}).sort((l, r) => (l.name - r.name));
+});
+
+COLORS = _.sortBy(COLORS, x => x.name);
 
 const BREAKFAST = [
+  "APPLE PIE",
   "BAGELS",
   //"BISCUITS AND GRAVY",
   //"Cold Pizza",
