@@ -1,6 +1,6 @@
 {
   "name": "@vickram/react-auto-complete",
-  "version": "1.0.2-pre.3",
+  "version": "1.0.2",
   "description": "React auto-complete plugin",
   "main": "dist/index.js",
   "homepage": "http://www.vickram.me/react-auto-complete",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "webpack": "npm run clean && webpack --config webpack.config.js"
+    "build": "npm run clean && webpack --config webpack.config.js"
   },
   "keywords": [
     "react",
