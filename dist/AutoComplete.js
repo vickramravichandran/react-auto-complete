@@ -1480,7 +1480,12 @@ var AutoComplete = function (_React$Component) {
     key: '_activate',
     value: function _activate() {
       helperService.setActiveInstanceId(this._instanceId);
-      this._originalSearchText = null;
+      // do not reset if the container (dropdown list) is currently visible
+      // Ex: Switching to a different tab or window and switching back
+      // again when the dropdown list is visible.
+      if (!this.state.containerVisible) {
+        this._originalSearchText = null;
+      }
     }
   }, {
     key: '_resetAndQuery',
