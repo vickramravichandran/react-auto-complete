@@ -1,6 +1,6 @@
 {
   "name": "@vickram/react-auto-complete",
-  "version": "1.0.3",
+  "version": "1.0.4-pre.7",
   "description": "React auto-complete plugin",
   "main": "dist/index.js",
   "homepage": "http://www.vickram.me/react-auto-complete",

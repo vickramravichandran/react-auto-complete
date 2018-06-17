@@ -20,7 +20,7 @@ export default class AutoComplete extends React.Component {
     this._queryCounter = 0;
     this._endOfPagedList = false;
     this._currentPageIndex = 0;
-    this._elementComponent = null;
+    this._childrenClone = null;
 
     this.state = {
       searchText: null,
@@ -66,6 +66,9 @@ export default class AutoComplete extends React.Component {
       return this._getAutoCompleteList();
     }
 
+    // the AutoComplete component has no child elements.
+    // The input element is being linked to the component
+    // by calling 'initialize()' programatically from outside
     if (_.isEmpty(this.props.children)) {
       return ReactDOM.createPortal(
         this._getContainer(),
@@ -73,36 +76,45 @@ export default class AutoComplete extends React.Component {
       );
     }
 
-    const children = React.cloneElement(this.props.children, {
-      ref: (element) => {
-        if (!element || element === this._elementComponent) {
-          return;
-        }
-
-        this._elementComponent = element;
-
-        if (element.tagName.toUpperCase() === 'INPUT') {
-          return this.initialize(element);
-        }
-
-        const inputElement = element.querySelector('input');
-        if (inputElement) {
-          return this.initialize(inputElement);
-        }
-
-        console.warn('No input element was found in props.children collection');
-        return null;
-      }
-    });
-
+    // the input element appears as a child of the AutoComplete component
     return (
       <React.Fragment>
-        {children}
+        {this._getChildren()}
         {this._getContainer()}
       </React.Fragment>
     );
   }
 
+  _getChildren() {
+    if (this._childrenClone) {
+      return this._childrenClone;
+    }
+
+    // Use React.cloneElement to get a ref to the child input element
+    this._childrenClone = React.cloneElement(this.props.children, {
+      ref: (element) => {
+        if (!element) {
+          return;
+        }
+
+        // the child is the input element
+        if (element.tagName.toUpperCase() === 'INPUT') {
+          return this.initialize(element);
+        }
+
+        // query the children for the input element and take the first
+        const inputElement = element.querySelector('input');
+        if (inputElement) {
+          return this.initialize(inputElement);
+        }
+
+        // an input element was not found
+        console.warn('No input element was found in props.children collection');
+      }
+    });
+
+    return this._childrenClone;
+  }
 
   _bindMethods() {
     this._handleWindowResize = this._handleWindowResize.bind(this);
