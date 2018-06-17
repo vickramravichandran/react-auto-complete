@@ -18,6 +18,11 @@ import "css/app.css";
 import "vendor/scale.fix";
 import "prismjs";
 import "prismjs/components/prism-jsx";
+import { whyDidYouUpdate } from 'why-did-you-update';
+
+if (process.env.NODE_ENV !== 'production') {
+  whyDidYouUpdate(React);
+}
 
 class App extends React.PureComponent {
   render() {

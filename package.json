@@ -26,7 +26,7 @@
     "url": "https://github.com/vickramravichandran/react-auto-complete/issues"
   },
   "devDependencies": {
-    "@vickram/react-auto-complete": "^1.0.3",
+    "@vickram/react-auto-complete": "^1.0.4-pre.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -55,6 +55,7 @@
     "prismjs": "^1.11.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "why-did-you-update": "^0.1.1"
   }
 }
