@@ -1157,7 +1157,7 @@ var AutoComplete = function (_React$Component) {
     _this._queryCounter = 0;
     _this._endOfPagedList = false;
     _this._currentPageIndex = 0;
-    _this._elementComponent = null;
+    _this._childrenClone = null;
 
     _this.state = {
       searchText: null,
@@ -1206,44 +1206,58 @@ var AutoComplete = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       if (this.props.isInline) {
         return this._getAutoCompleteList();
       }
 
+      // the AutoComplete component has no child elements.
+      // The input element is being linked to the component
+      // by calling 'initialize()' programatically from outside
       if (_.isEmpty(this.props.children)) {
         return _reactDom2.default.createPortal(this._getContainer(), WINDOW.document.body);
       }
 
-      var children = _react2.default.cloneElement(this.props.children, {
+      // the input element appears as a child of the AutoComplete component
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        this._getChildren(),
+        this._getContainer()
+      );
+    }
+  }, {
+    key: '_getChildren',
+    value: function _getChildren() {
+      var _this2 = this;
+
+      if (this._childrenClone) {
+        return this._childrenClone;
+      }
+
+      // Use React.cloneElement to get a ref to the child input element
+      this._childrenClone = _react2.default.cloneElement(this.props.children, {
         ref: function ref(element) {
-          if (!element || element === _this2._elementComponent) {
+          if (!element) {
             return;
           }
 
-          _this2._elementComponent = element;
-
+          // the child is the input element
           if (element.tagName.toUpperCase() === 'INPUT') {
             return _this2.initialize(element);
           }
 
+          // query the children for the input element and take the first
           var inputElement = element.querySelector('input');
           if (inputElement) {
             return _this2.initialize(inputElement);
           }
 
+          // an input element was not found
           console.warn('No input element was found in props.children collection');
-          return null;
         }
       });
 
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        children,
-        this._getContainer()
-      );
+      return this._childrenClone;
     }
   }, {
     key: '_bindMethods',
